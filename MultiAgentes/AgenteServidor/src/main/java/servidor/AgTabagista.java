@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package servidor;
 
 import java.io.IOException;
@@ -9,33 +5,83 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 
-/**
- *
- * @author joaop
- */
-public class AgTabagista {
-    private static final String MULTICAST_ADDRESS = "224.0.0.1";
-    private static final int PORT = 8888;
+class QuestionarioFagerstrom {
+    private final int[] respostas;
 
-    public double avaliarTabagismo(double peso, double altura) {
-        // Lógica para avaliar o risco de obesidade com base nos parâmetros
-        return peso / (altura * altura);
+    public QuestionarioFagerstrom(int[] respostas) {
+        this.respostas = respostas;
     }
 
-    public void enviarResultadoObesidade(double resultado) {
+    public int getPontos() {
+        return respostas[0] + respostas[1] + respostas[2] + respostas[3] + respostas[4] + respostas[5];
+    }
+}
+
+public class AgTabagista {
+    private final int respostas;
+
+    public AgTabagista( int[] questionario) {
+        this.respostas = questionario[0] + questionario[1] + questionario[2] + questionario[3] + questionario[4] + questionario[5];
+    }
+
+    public double avaliarDependenciaNicotina() {
+        int pontos = respostas;
+        if (pontos <= 2) {
+            return 0.0;
+        } else if (pontos <= 4) {
+            return 0.25;
+        } else if (pontos <= 6) {
+            return 0.5;
+        } else if (pontos <= 8) {
+            return 0.75;
+        } else {
+            return 1.0;
+        }
+    }
+
+    public void receberDadosDoControlador() {
         try {
+            int porta = 12345; // Porta de comunicação multicast
+            InetAddress grupo = InetAddress.getByName("225.0.0.1"); // Endereço multicast
+
+            MulticastSocket socket = new MulticastSocket(porta);
+            socket.joinGroup(grupo);
+
+            byte[] buffer = new byte[1024];
+            DatagramPacket pacote = new DatagramPacket(buffer, buffer.length);
+
+            socket.receive(pacote);
+            String dadosRecebidos = new String(pacote.getData(), 0, pacote.getLength());
+            System.out.println("Dados recebidos do controlador: " + dadosRecebidos);
+
+            socket.leaveGroup(grupo);
+            socket.close();
+
+            // Processar os dados recebidos
+            // Aqui você poderia extrair os dados, fazer a avaliação e enviar de volta para o controlador
+            double grauEvidencia = avaliarDependenciaNicotina();
+            enviarResultadoAoControlador(grauEvidencia);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void enviarResultadoAoControlador(double grauEvidencia) {
+        try {
+            int porta = 12345; // Porta de comunicação multicast
+            InetAddress grupo = InetAddress.getByName("225.0.0.1"); // Endereço multicast
+
             MulticastSocket socket = new MulticastSocket();
-            InetAddress group = InetAddress.getByName(MULTICAST_ADDRESS);
+            String mensagem = "Grau de dependência de nicotina: " + grauEvidencia;
 
-            String mensagem = "Obesidade: " + resultado;
-            DatagramPacket packet = new DatagramPacket(
-                mensagem.getBytes(), mensagem.getBytes().length, group, PORT
-            );
+            DatagramPacket pacote = new DatagramPacket(mensagem.getBytes(), mensagem.length(), grupo, porta);
+            socket.send(pacote);
 
-            socket.send(packet);
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }

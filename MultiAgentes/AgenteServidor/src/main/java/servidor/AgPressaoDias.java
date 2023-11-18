@@ -1,38 +1,68 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package servidor;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.InetAddress;
-import java.net.MulticastSocket;
+import java.net.*;
 
-/**
- *
- * @author joaop
- */
 public class AgPressaoDias {
-    private static final String MULTICAST_ADDRESS = "224.0.0.1";
-    private static final int PORT = 8888;
+    private final int pressaoDiastolica;
 
-    public double avaliarPressao(double peso, double altura) {
-        // Lógica para avaliar o risco de obesidade com base nos parâmetros
-        return peso / (altura * altura);
+    public AgPressaoDias(int pressaoDiastolica) {
+        this.pressaoDiastolica = pressaoDiastolica;
     }
 
-    public void enviarResultadoObesidade(double resultado) {
+    public double avaliarRiscoPressaoDiastolica() {
+        double pertinencia = 0.0;
+
+        if (pressaoDiastolica >= 80 && pressaoDiastolica <= 90) {
+            pertinencia = (double) (pressaoDiastolica - 80) / (90 - 80);
+        } else if (pressaoDiastolica > 90) {
+            pertinencia = 1.0;
+        } else {
+            pertinencia = 0.0;
+        }
+
+        return pertinencia;
+    }
+
+    public void receberDadosDoControlador() {
         try {
+            int porta = 12345; // Porta de comunicação multicast
+            InetAddress grupo = InetAddress.getByName("225.0.0.1"); // Endereço multicast
+
+            MulticastSocket socket = new MulticastSocket(porta);
+            socket.joinGroup(grupo);
+
+            byte[] buffer = new byte[1024];
+            DatagramPacket pacote = new DatagramPacket(buffer, buffer.length);
+
+            socket.receive(pacote);
+            String dadosRecebidos = new String(pacote.getData(), 0, pacote.getLength());
+            System.out.println("Dados recebidos do controlador: " + dadosRecebidos);
+
+            socket.leaveGroup(grupo);
+            socket.close();
+
+            // Processar os dados recebidos
+            // Aqui você poderia extrair os dados, fazer a avaliação e enviar de volta para o controlador
+            double pertinencia = avaliarRiscoPressaoDiastolica();
+            enviarResultadoAoControlador(pertinencia);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void enviarResultadoAoControlador(double pertinencia) {
+        try {
+            int porta = 12345; // Porta de comunicação multicast
+            InetAddress grupo = InetAddress.getByName("225.0.0.1"); // Endereço multicast
+
             MulticastSocket socket = new MulticastSocket();
-            InetAddress group = InetAddress.getByName(MULTICAST_ADDRESS);
+            String mensagem = "Resultado da avaliação da pressão diastólica: " + pertinencia;
 
-            String mensagem = "Obesidade: " + resultado;
-            DatagramPacket packet = new DatagramPacket(
-                mensagem.getBytes(), mensagem.getBytes().length, group, PORT
-            );
+            DatagramPacket pacote = new DatagramPacket(mensagem.getBytes(), mensagem.length(), grupo, porta);
+            socket.send(pacote);
 
-            socket.send(packet);
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();

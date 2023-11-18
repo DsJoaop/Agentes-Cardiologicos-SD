@@ -5,34 +5,69 @@
 package servidor;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.InetAddress;
-import java.net.MulticastSocket;
+import java.net.*;
 
-/**
- *
- * @author joaop
- */
 public class AgSedentar {
-    private static final String MULTICAST_ADDRESS = "224.0.0.1";
-    private static final int PORT = 8888;
+    private int numeroAtividades;
 
-    public double avaliarSedentarismo(double peso, double altura) {
-        // Lógica para avaliar o risco de obesidade com base nos parâmetros
-        return peso / (altura * altura);
+    public AgSedentar(int numeroAtividades) {
+        this.numeroAtividades = numeroAtividades;
     }
 
-    public void enviarResultadoObesidade(double resultado) {
+    public double avaliarBeneficiosSaude() {
+        double evidenciaBeneficios = 0.0;
+
+        evidenciaBeneficios = switch (numeroAtividades) {
+            case 0 -> 1.0;
+            case 1 -> 0.75;
+            case 2 -> 0.5;
+            case 3 -> 0.25;
+            case 4 -> 0.0;
+            default -> -1.0;
+        }; // Indica um número inválido de atividades
+
+        return evidenciaBeneficios;
+    }
+
+    public void receberDadosDoControlador() {
         try {
+            int porta = 12345; // Porta de comunicação multicast
+            InetAddress grupo = InetAddress.getByName("225.0.0.1"); // Endereço multicast
+
+            MulticastSocket socket = new MulticastSocket(porta);
+            socket.joinGroup(grupo);
+
+            byte[] buffer = new byte[1024];
+            DatagramPacket pacote = new DatagramPacket(buffer, buffer.length);
+
+            socket.receive(pacote);
+            String dadosRecebidos = new String(pacote.getData(), 0, pacote.getLength());
+            System.out.println("Dados recebidos do controlador: " + dadosRecebidos);
+
+            socket.leaveGroup(grupo);
+            socket.close();
+
+            // Processar os dados recebidos
+            // Aqui você poderia extrair os dados, fazer a avaliação e enviar de volta para o controlador
+            double evidenciaBeneficios = avaliarBeneficiosSaude();
+            enviarResultadoAoControlador(evidenciaBeneficios);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void enviarResultadoAoControlador(double evidenciaBeneficios) {
+        try {
+            int porta = 12345; // Porta de comunicação multicast
+            InetAddress grupo = InetAddress.getByName("225.0.0.1"); // Endereço multicast
+
             MulticastSocket socket = new MulticastSocket();
-            InetAddress group = InetAddress.getByName(MULTICAST_ADDRESS);
+            String mensagem = "Evidência de benefícios para a saúde: " + evidenciaBeneficios;
 
-            String mensagem = "Obesidade: " + resultado;
-            DatagramPacket packet = new DatagramPacket(
-                mensagem.getBytes(), mensagem.getBytes().length, group, PORT
-            );
+            DatagramPacket pacote = new DatagramPacket(mensagem.getBytes(), mensagem.length(), grupo, porta);
+            socket.send(pacote);
 
-            socket.send(packet);
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
