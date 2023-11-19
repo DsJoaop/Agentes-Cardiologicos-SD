@@ -4,16 +4,13 @@ import java.io.*;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
-import javax.swing.ButtonGroup;
-import javax.swing.JFormattedTextField;
-import javax.swing.JSpinner;
 import model.DadosInterface;
 import view.Interface;
 
 public class ControllerInterface {
     private final Interface interfaceUsuario;
     private static final String MULTICAST_ADDRESS = "224.0.0.1";
-    private static final int MULTICAST_PORT = 8888;
+    private static final int MULTICAST_PORT = 12345;
 
     public ControllerInterface() {
         this.interfaceUsuario = new Interface(this);
@@ -38,8 +35,7 @@ public class ControllerInterface {
         return null;
     }
     
-    public String enviarDiagnostico(ButtonGroup[] grupoBotoes, JSpinner[] grupoSpinners, JFormattedTextField[] grupoValores) {
-       DadosInterface dados = new DadosInterface(grupoBotoes, grupoSpinners, grupoValores);
+    public String enviarDiagnostico(DadosInterface dados) {
        return enviarSolicitacao(dados);
     }
 

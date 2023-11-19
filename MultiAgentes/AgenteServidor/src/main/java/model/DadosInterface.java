@@ -1,50 +1,82 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-import java.io.Serializable;
-import javax.swing.ButtonGroup;
-import javax.swing.JFormattedTextField;
-import javax.swing.JSpinner;
+public class DadosInterface {
+    private double altura;
+    private double peso;
+    private double pressaoSistolica;
+    private double pressaoDiastolica;
+    private double atividade;
+    private double pontuacaoTotal;
+    private double avaliacaoMedica;
 
-/**
- *
- * @author joaop
- */
-public class DadosInterface implements Serializable {
-    private ButtonGroup[] grupoBotoes;
-    private JSpinner[] grupoSpinners;
-    private JFormattedTextField[] grupoValores;
-
-    public DadosInterface(ButtonGroup[] grupoBotoes, JSpinner[] grupoSpinners, JFormattedTextField[] grupoValores) {
-        this.grupoBotoes = grupoBotoes;
-        this.grupoSpinners = grupoSpinners;
-        this.grupoValores = grupoValores;
+    public DadosInterface(double altura, double peso, double pressaoSistolica,
+                           double pressaoDiastolica, double atividade,
+                           double pontuacaoTotal, double avaliacaoMedica) {
+        this.altura = altura;
+        this.peso = peso;
+        this.pressaoSistolica = pressaoSistolica;
+        this.pressaoDiastolica = pressaoDiastolica;
+        this.atividade = atividade;
+        this.pontuacaoTotal = pontuacaoTotal;
+        this.avaliacaoMedica = avaliacaoMedica;
     }
 
-    public ButtonGroup[] getGrupoBotoes() {
-        return grupoBotoes;
+    public double getAltura() {
+        return altura;
     }
 
-    public void setGrupoBotoes(ButtonGroup[] grupoBotoes) {
-        this.grupoBotoes = grupoBotoes;
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 
-    public JSpinner[] getGrupoSpinners() {
-        return grupoSpinners;
+    public double getPeso() {
+        return peso;
     }
 
-    public void setGrupoSpinners(JSpinner[] grupoSpinners) {
-        this.grupoSpinners = grupoSpinners;
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
 
-    public JFormattedTextField[] getGrupoValores() {
-        return grupoValores;
+    public double getPressaoSistolica() {
+        return pressaoSistolica;
     }
 
-    public void setGrupoValores(JFormattedTextField[] grupoValores) {
-        this.grupoValores = grupoValores;
+    public void setPressaoSistolica(double pressaoSistolica) {
+        this.pressaoSistolica = pressaoSistolica;
     }
+
+    public double getPressaoDiastolica() {
+        return pressaoDiastolica;
+    }
+
+    public void setPressaoDiastolica(double pressaoDiastolica) {
+        this.pressaoDiastolica = pressaoDiastolica;
+    }
+
+    public double getAtividade() {
+        return atividade;
+    }
+
+    public void setAtividade(double atividade) {
+        this.atividade = atividade;
+    }
+
+    public double getPontuacaoTotal() {
+        return pontuacaoTotal;
+    }
+
+    public void setPontuacaoTotal(double pontuacaoTotal) {
+        this.pontuacaoTotal = pontuacaoTotal;
+    }
+
+    public double getAvaliacaoMedica() {
+        return avaliacaoMedica;
+    }
+
+    public void setAvaliacaoMedica(double avaliacaoMedica) {
+        this.avaliacaoMedica = avaliacaoMedica;
+    }
+
+    
+    
 }

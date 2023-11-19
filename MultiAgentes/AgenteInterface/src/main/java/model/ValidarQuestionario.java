@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class VerificacaoQuestionario {
+public class ValidarQuestionario {
     private static final Map<String, Integer> mapaRespostas = new HashMap<>();
 
     static {
