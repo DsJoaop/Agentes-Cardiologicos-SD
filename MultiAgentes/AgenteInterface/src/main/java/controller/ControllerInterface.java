@@ -16,7 +16,7 @@ public class ControllerInterface {
         this.interfaceUsuario = new Interface(this);
     }
     
-    public String enviarSolicitacao(DadosInterface dados){
+    public String enviarDados(DadosInterface dados) {
         try (MulticastSocket socket = new MulticastSocket()) {
             InetAddress group = InetAddress.getByName(MULTICAST_ADDRESS);
 
@@ -26,7 +26,8 @@ public class ControllerInterface {
                 objectStream.flush();
 
                 byte[] dadosSerializados = byteStream.toByteArray();
-                DatagramPacket packet = new DatagramPacket(dadosSerializados, dadosSerializados.length, group, MULTICAST_PORT);
+                DatagramPacket packet = new DatagramPacket(
+                        dadosSerializados, dadosSerializados.length, group, MULTICAST_PORT);
                 socket.send(packet);
             }
         } catch (IOException e) {
@@ -36,7 +37,7 @@ public class ControllerInterface {
     }
     
     public String enviarDiagnostico(DadosInterface dados) {
-       return enviarSolicitacao(dados);
+       return enviarDados(dados);
     }
 
     public void exibirInterface() {

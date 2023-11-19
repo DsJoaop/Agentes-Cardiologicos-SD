@@ -76,7 +76,4 @@ public class DadosInterface {
     public void setAvaliacaoMedica(double avaliacaoMedica) {
         this.avaliacaoMedica = avaliacaoMedica;
     }
-
-    
-    
 }

@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
+
+import java.util.Enumeration;
 import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ValidarQuestionario {
+public class ValidarQuest {
     private static final Map<String, Integer> mapaRespostas = new HashMap<>();
 
     static {
@@ -30,15 +28,13 @@ public class ValidarQuestionario {
         mapaRespostas.put("Mais de 31", 3);
     }
 
-    private static int obterValorPelaResposta(String resposta) {
-        return mapaRespostas.getOrDefault(resposta, 0);
-    }
-
     private static int calcularPontuacao(ButtonGroup grupo) {
-        ButtonModel selecionado = grupo.getSelection();
-        if (selecionado != null) {
-            String textoBotaoSelecionado = selecionado.getActionCommand();
-            return obterValorPelaResposta(textoBotaoSelecionado);
+        for (Enumeration<AbstractButton> buttons = grupo.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+            if (button.isSelected()) {
+                String textoBotaoSelecionado = button.getText();
+                return obterValorPelaResposta(textoBotaoSelecionado);
+            }
         }
         return 0;
     }
@@ -49,5 +45,9 @@ public class ValidarQuestionario {
             pontuacaoTotal += calcularPontuacao(grupo);
         }
         return pontuacaoTotal;
+    }
+
+    private static int obterValorPelaResposta(String resposta) {
+        return mapaRespostas.getOrDefault(resposta, 0);
     }
 }
