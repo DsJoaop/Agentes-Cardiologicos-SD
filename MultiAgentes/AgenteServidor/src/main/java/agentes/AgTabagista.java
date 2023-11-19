@@ -1,21 +1,9 @@
-package servidor;
+package agentes;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
-
-class QuestionarioFagerstrom {
-    private final int[] respostas;
-
-    public QuestionarioFagerstrom(int[] respostas) {
-        this.respostas = respostas;
-    }
-
-    public int getPontos() {
-        return respostas[0] + respostas[1] + respostas[2] + respostas[3] + respostas[4] + respostas[5];
-    }
-}
 
 public class AgTabagista {
     private final int respostas;

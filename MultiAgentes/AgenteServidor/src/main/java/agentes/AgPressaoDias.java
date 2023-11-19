@@ -1,32 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package servidor;
+package agentes;
 
 import java.io.IOException;
 import java.net.*;
 
-public class AgSedentar {
-    private int numeroAtividades;
+public class AgPressaoDias {
+    private final int pressaoDiastolica;
 
-    public AgSedentar(int numeroAtividades) {
-        this.numeroAtividades = numeroAtividades;
+    public AgPressaoDias(int pressaoDiastolica) {
+        this.pressaoDiastolica = pressaoDiastolica;
     }
 
-    public double avaliarBeneficiosSaude() {
-        double evidenciaBeneficios = 0.0;
+    public double avaliarRiscoPressaoDiastolica() {
+        double pertinencia = 0.0;
 
-        evidenciaBeneficios = switch (numeroAtividades) {
-            case 0 -> 1.0;
-            case 1 -> 0.75;
-            case 2 -> 0.5;
-            case 3 -> 0.25;
-            case 4 -> 0.0;
-            default -> -1.0;
-        }; // Indica um número inválido de atividades
+        if (pressaoDiastolica >= 80 && pressaoDiastolica <= 90) {
+            pertinencia = (double) (pressaoDiastolica - 80) / (90 - 80);
+        } else if (pressaoDiastolica > 90) {
+            pertinencia = 1.0;
+        } else {
+            pertinencia = 0.0;
+        }
 
-        return evidenciaBeneficios;
+        return pertinencia;
     }
 
     public void receberDadosDoControlador() {
@@ -49,21 +44,21 @@ public class AgSedentar {
 
             // Processar os dados recebidos
             // Aqui você poderia extrair os dados, fazer a avaliação e enviar de volta para o controlador
-            double evidenciaBeneficios = avaliarBeneficiosSaude();
-            enviarResultadoAoControlador(evidenciaBeneficios);
+            double pertinencia = avaliarRiscoPressaoDiastolica();
+            enviarResultadoAoControlador(pertinencia);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void enviarResultadoAoControlador(double evidenciaBeneficios) {
+    public void enviarResultadoAoControlador(double pertinencia) {
         try {
             int porta = 12345; // Porta de comunicação multicast
             InetAddress grupo = InetAddress.getByName("225.0.0.1"); // Endereço multicast
 
             MulticastSocket socket = new MulticastSocket();
-            String mensagem = "Evidência de benefícios para a saúde: " + evidenciaBeneficios;
+            String mensagem = "Resultado da avaliação da pressão diastólica: " + pertinencia;
 
             DatagramPacket pacote = new DatagramPacket(mensagem.getBytes(), mensagem.length(), grupo, porta);
             socket.send(pacote);
