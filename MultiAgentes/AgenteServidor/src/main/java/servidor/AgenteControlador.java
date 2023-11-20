@@ -1,5 +1,6 @@
 package servidor;
 
+import model.ControleLPA2V;
 import model.DadosInterface;
 import agentes.*;
 
@@ -8,10 +9,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class AgenteControlador{
-    private AgenteServidor servidor;
+    private Servidor servidor;
     
     public AgenteControlador(){
-        this.servidor = new AgenteServidor();
+        this.servidor = new Servidor();
     }
     
     public List<Double> processar(DadosInterface dados) {

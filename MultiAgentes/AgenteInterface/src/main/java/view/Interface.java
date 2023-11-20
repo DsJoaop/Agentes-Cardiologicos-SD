@@ -50,6 +50,7 @@ public class Interface extends javax.swing.JFrame {
         grpResposta4 = new javax.swing.ButtonGroup();
         grpResposta5 = new javax.swing.ButtonGroup();
         grpResposta6 = new javax.swing.ButtonGroup();
+        jSpinner1 = new javax.swing.JSpinner();
         jPanel1 = new javax.swing.JPanel();
         jPanel = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
@@ -186,6 +187,8 @@ public class Interface extends javax.swing.JFrame {
         jPanel1.add(painelManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 6, 490, 160));
 
         jScrollPane2.setBorder(null);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         txtPeso1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtPeso1.setText("[1] – Quanto tempo após acordar você fuma seu primeiro cigarro? ");
@@ -266,14 +269,6 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPeso1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtSintoma1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(painelManual1Layout.createSequentialGroup()
                         .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,7 +297,18 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(painelManual1Layout.createSequentialGroup()
                         .addComponent(jRadioButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(jRadioButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jRadioButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(painelManual1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelManual1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         painelManual1Layout.setVerticalGroup(
             painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,12 +319,14 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(txtPeso1)
                 .addGap(10, 10, 10)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton1))
-                .addGap(9, 9, 9)
-                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton6))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton5)))
                 .addGap(18, 18, 18)
                 .addComponent(txtSintoma1)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -508,6 +516,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JPanel painelManual;
     private javax.swing.JPanel painelManual1;
     private javax.swing.JSpinner spnAtividade;

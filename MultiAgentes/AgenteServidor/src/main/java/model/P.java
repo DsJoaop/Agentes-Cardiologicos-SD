@@ -1,4 +1,4 @@
-package servidor;
+package model;
 
 public class P {
 
