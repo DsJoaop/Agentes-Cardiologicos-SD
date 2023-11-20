@@ -1,18 +1,29 @@
 package agentes;
 
-public class AgTabagista {
-    public static double avaliarDependenciaNicotina(double questionario) {
+import model.DadosInterface;
+
+public class AgTabagista extends Agente {
+    public AgTabagista(DadosInterface dados) {
+        super(dados);
+    }
+
+    @Override
+    public double avaliar() {
+        double questionario = dados.getPontuacaoTotal(); // Supondo que o dado necessário seja obtido de DadosInterface
         double pontos = questionario;
+        double dependencia;
         if (pontos <= 2) {
-            return 0.0;
+            dependencia = 0.0;
         } else if (pontos <= 4) {
-            return 0.25;
+            dependencia = 0.25;
         } else if (pontos <= 6) {
-            return 0.5;
+            dependencia = 0.5;
         } else if (pontos <= 8) {
-            return 0.75;
+            dependencia = 0.75;
         } else {
-            return 1.0;
+            dependencia = 1.0;
         }
+
+        return dependencia;
     }
 }

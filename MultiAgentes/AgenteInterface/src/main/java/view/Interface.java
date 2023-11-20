@@ -2,6 +2,7 @@ package view;
 
 
 import controller.ControllerInterface;
+import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -23,11 +24,12 @@ public class Interface extends javax.swing.JFrame {
     public Interface(ControllerInterface controlador) {
         
         try {
-            // Define o Look and Feel para o tema Nimbus
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+            // Define o Look and Feel padrão do sistema
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-            System.out.println("Erro ao definir o tema Nimbus: " + e.getMessage());
+            System.out.println("Erro ao definir o Look and Feel do sistema: " + e.getMessage());
         }
+        
         initComponents();
         this.controlador = controlador;
         painelManual.setEnabled(true);
@@ -48,15 +50,30 @@ public class Interface extends javax.swing.JFrame {
         grpResposta4 = new javax.swing.ButtonGroup();
         grpResposta5 = new javax.swing.ButtonGroup();
         grpResposta6 = new javax.swing.ButtonGroup();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel = new javax.swing.JPanel();
         jScrollPane = new javax.swing.JScrollPane();
         txtDiagnostico = new javax.swing.JTextArea();
         txtTitulo13 = new javax.swing.JLabel();
-        txtTitulo3 = new javax.swing.JLabel();
-        btLimpar = new javax.swing.JButton();
-        btEnviarDiagnostico = new javax.swing.JButton();
+        painelManual = new javax.swing.JPanel();
+        txtTitulo2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        spnPeso = new javax.swing.JSpinner();
+        spnPressaoSistolica = new javax.swing.JSpinner();
+        spnAtividade = new javax.swing.JSpinner();
+        jPanel3 = new javax.swing.JPanel();
+        txtPeso = new javax.swing.JLabel();
+        txtSintoma = new javax.swing.JLabel();
+        txtsintomas6 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        txtsintomas3 = new javax.swing.JLabel();
+        txtsintomas5 = new javax.swing.JLabel();
+        txtsintomas4 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        txtAltura = new javax.swing.JTextField();
+        spnPressaoDiastolica = new javax.swing.JSpinner();
+        txtAvaliacaoMedica = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
         painelManual1 = new javax.swing.JPanel();
         txtPeso1 = new javax.swing.JLabel();
         txtSintoma1 = new javax.swing.JLabel();
@@ -80,23 +97,16 @@ public class Interface extends javax.swing.JFrame {
         jRadioButton18 = new javax.swing.JRadioButton();
         jRadioButton19 = new javax.swing.JRadioButton();
         jRadioButton20 = new javax.swing.JRadioButton();
-        painelManual = new javax.swing.JPanel();
-        txtPeso = new javax.swing.JLabel();
-        txtsintomas3 = new javax.swing.JLabel();
-        txtSintoma = new javax.swing.JLabel();
-        txtsintomas5 = new javax.swing.JLabel();
-        txtsintomas6 = new javax.swing.JLabel();
-        txtTitulo2 = new javax.swing.JLabel();
-        spnPressaoSistolica = new javax.swing.JSpinner();
-        spnPeso = new javax.swing.JSpinner();
-        spnPressaoDiastolica = new javax.swing.JSpinner();
-        spnAtividade = new javax.swing.JSpinner();
-        txtsintomas4 = new javax.swing.JLabel();
-        txtAvaliacaoMedica = new javax.swing.JTextField();
-        txtAltura = new javax.swing.JTextField();
+        txtTitulo3 = new javax.swing.JLabel();
+        btLimpar = new javax.swing.JButton();
+        btEnviarDiagnostico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel.setLayout(new java.awt.BorderLayout());
 
         txtDiagnostico.setColumns(20);
@@ -110,9 +120,169 @@ public class Interface extends javax.swing.JFrame {
         txtTitulo13.setText("Diagnóstico");
         jPanel.add(txtTitulo13, java.awt.BorderLayout.PAGE_START);
 
+        jPanel1.add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 537, 460, 160));
+
+        painelManual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtTitulo2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTitulo2.setText("Questionário Médico");
+        painelManual.add(txtTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 460, -1));
+
+        jPanel2.setLayout(new java.awt.GridLayout(3, 1, 50, 20));
+
+        spnPeso.setModel(new javax.swing.SpinnerNumberModel(50, 20, 300, 1));
+        jPanel2.add(spnPeso);
+
+        spnPressaoSistolica.setModel(new javax.swing.SpinnerNumberModel(120, 20, 300, 10));
+        jPanel2.add(spnPressaoSistolica);
+
+        spnAtividade.setModel(new javax.swing.SpinnerNumberModel(0, 0, 4, 1));
+        jPanel2.add(spnAtividade);
+
+        painelManual.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 60, 100));
+
+        jPanel3.setLayout(new java.awt.GridLayout(3, 0, 0, 20));
+
+        txtPeso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPeso.setText("[1] – Insira o Peso:");
+        jPanel3.add(txtPeso);
+
+        txtSintoma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtSintoma.setText("[3] – Pressão Sistólica:");
+        jPanel3.add(txtSintoma);
+
+        txtsintomas6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas6.setText("[5] – Atividades Física:");
+        jPanel3.add(txtsintomas6);
+
+        painelManual.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 150, 100));
+
+        jPanel4.setLayout(new java.awt.GridLayout(3, 0, 0, 20));
+
+        txtsintomas3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas3.setText("[2] – Altura do Paciente:");
+        jPanel4.add(txtsintomas3);
+
+        txtsintomas5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas5.setText("[4] – Pressão Disatólica:");
+        jPanel4.add(txtsintomas5);
+
+        txtsintomas4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas4.setText("[6] – Avaliação Médico");
+        jPanel4.add(txtsintomas4);
+
+        painelManual.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 160, 100));
+
+        jPanel5.setLayout(new java.awt.GridLayout(3, 0, 0, 20));
+        jPanel5.add(txtAltura);
+
+        spnPressaoDiastolica.setModel(new javax.swing.SpinnerNumberModel(80, 20, 200, 10));
+        jPanel5.add(spnPressaoDiastolica);
+        jPanel5.add(txtAvaliacaoMedica);
+
+        painelManual.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 60, 100));
+
+        jPanel1.add(painelManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 6, -1, 170));
+
+        painelManual1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtPeso1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPeso1.setText("[1] – Quanto tempo após acordar você fuma seu primeiro cigarro? ");
+        painelManual1.add(txtPeso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 430, -1));
+
+        txtSintoma1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtSintoma1.setText("[2] – Você acha difícil não fumar em lugares proibidos? ");
+        painelManual1.add(txtSintoma1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 407, -1));
+
+        txtsintomas7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas7.setText("[3] – Qual cigarro do dia lhe dá mais satisfação? ");
+        painelManual1.add(txtsintomas7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 362, -1));
+
+        txtsintomas8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas8.setText("[4] – Quantos cigarros fuma por dia? ");
+        painelManual1.add(txtsintomas8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 293, -1));
+
+        txtsintomas9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas9.setText("[5] – Você fuma mais frequentemente pela manhã? ");
+        painelManual1.add(txtsintomas9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 382, -1));
+
+        txtsintomas10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas10.setText("[6] – Você fuma mesmo doente, quando precisa ficar de cama?");
+        painelManual1.add(txtsintomas10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 410, 24));
+
+        grpResposta1.add(jRadioButton1);
+        jRadioButton1.setText("Entre 6 e 30 minutos");
+        painelManual1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 147, -1));
+
+        grpResposta1.add(jRadioButton2);
+        jRadioButton2.setText("5 minutos");
+        painelManual1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 91, -1));
+
+        grpResposta1.add(jRadioButton5);
+        jRadioButton5.setText("Entre 31 e 60 minutos");
+        painelManual1.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 153, -1));
+
+        grpResposta1.add(jRadioButton6);
+        jRadioButton6.setText("Após 60 minutos");
+        painelManual1.add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 128, -1));
+
+        grpResposta2.add(jRadioButton3);
+        jRadioButton3.setText("Sim");
+        painelManual1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 50, -1));
+
+        grpResposta2.add(jRadioButton4);
+        jRadioButton4.setText("Não");
+        painelManual1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 75, -1));
+
+        grpResposta3.add(jRadioButton9);
+        jRadioButton9.setText("Outros");
+        painelManual1.add(jRadioButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 88, -1));
+
+        grpResposta3.add(jRadioButton10);
+        jRadioButton10.setText("O primeiro da manhã");
+        painelManual1.add(jRadioButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 140, -1));
+
+        grpResposta4.add(jRadioButton11);
+        jRadioButton11.setText("Menos de 10");
+        painelManual1.add(jRadioButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 107, -1));
+
+        grpResposta4.add(jRadioButton12);
+        jRadioButton12.setText("De 11 a 20");
+        painelManual1.add(jRadioButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 96, -1));
+
+        grpResposta4.add(jRadioButton15);
+        jRadioButton15.setText("De 21 a 30");
+        painelManual1.add(jRadioButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 96, -1));
+
+        grpResposta4.add(jRadioButton16);
+        jRadioButton16.setText("Mais de 31");
+        painelManual1.add(jRadioButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 97, -1));
+
+        grpResposta5.add(jRadioButton17);
+        jRadioButton17.setText("Sim");
+        painelManual1.add(jRadioButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 60, -1));
+
+        grpResposta5.add(jRadioButton18);
+        jRadioButton18.setText("Não");
+        painelManual1.add(jRadioButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 74, -1));
+
+        grpResposta6.add(jRadioButton19);
+        jRadioButton19.setText("Sim");
+        painelManual1.add(jRadioButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 50, -1));
+
+        grpResposta6.add(jRadioButton20);
+        jRadioButton20.setText("Não");
+        painelManual1.add(jRadioButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 82, -1));
+
         txtTitulo3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtTitulo3.setText("Questionário Tabagismo");
+        painelManual1.add(txtTitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 470, 30));
+
+        jScrollPane2.setViewportView(painelManual1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 490, 290));
 
         btLimpar.setBackground(new java.awt.Color(255, 0, 0));
         btLimpar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -122,6 +292,7 @@ public class Interface extends javax.swing.JFrame {
                 btLimparActionPerformed(evt);
             }
         });
+        jPanel1.add(btLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, 161, -1));
 
         btEnviarDiagnostico.setBackground(new java.awt.Color(102, 255, 0));
         btEnviarDiagnostico.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -131,281 +302,20 @@ public class Interface extends javax.swing.JFrame {
                 btEnviarDiagnosticoActionPerformed(evt);
             }
         });
+        jPanel1.add(btEnviarDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 161, -1));
 
-        txtPeso1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPeso1.setText("[1] – Quanto tempo após acordar você fuma seu primeiro cigarro? ");
-
-        txtSintoma1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtSintoma1.setText("[2] – Você acha difícil não fumar em lugares proibidos? ");
-
-        txtsintomas7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas7.setText("[3] – Qual cigarro do dia lhe dá mais satisfação? ");
-
-        txtsintomas8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas8.setText("[4] – Quantos cigarros fuma por dia? ");
-
-        txtsintomas9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas9.setText("[5] – Você fuma mais frequentemente pela manhã? ");
-
-        txtsintomas10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas10.setText("[6] – Você fuma mesmo doente, quando precisa ficar de cama?");
-
-        grpResposta1.add(jRadioButton1);
-        jRadioButton1.setText("Entre 6 e 30 minutos");
-
-        grpResposta1.add(jRadioButton2);
-        jRadioButton2.setText("5 minutos");
-
-        grpResposta1.add(jRadioButton5);
-        jRadioButton5.setText("Entre 31 e 60 minutos");
-
-        grpResposta1.add(jRadioButton6);
-        jRadioButton6.setText("Após 60 minutos");
-
-        grpResposta2.add(jRadioButton3);
-        jRadioButton3.setText("Sim");
-
-        grpResposta2.add(jRadioButton4);
-        jRadioButton4.setText("Não");
-
-        grpResposta3.add(jRadioButton9);
-        jRadioButton9.setText("Outros");
-
-        grpResposta3.add(jRadioButton10);
-        jRadioButton10.setText("O primeiro da manhã");
-
-        grpResposta4.add(jRadioButton11);
-        jRadioButton11.setText("Menos de 10");
-
-        grpResposta4.add(jRadioButton12);
-        jRadioButton12.setText("De 11 a 20");
-
-        grpResposta4.add(jRadioButton15);
-        jRadioButton15.setText("De 21 a 30");
-
-        grpResposta4.add(jRadioButton16);
-        jRadioButton16.setText("Mais de 31");
-
-        grpResposta5.add(jRadioButton17);
-        jRadioButton17.setText("Sim");
-
-        grpResposta5.add(jRadioButton18);
-        jRadioButton18.setText("Não");
-
-        grpResposta6.add(jRadioButton19);
-        jRadioButton19.setText("Sim");
-
-        grpResposta6.add(jRadioButton20);
-        jRadioButton20.setText("Não");
-
-        javax.swing.GroupLayout painelManual1Layout = new javax.swing.GroupLayout(painelManual1);
-        painelManual1.setLayout(painelManual1Layout);
-        painelManual1Layout.setHorizontalGroup(
-            painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelManual1Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(txtSintoma1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(160, 160, 160))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(401, 401, 401))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(txtsintomas7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(205, 205, 205))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(294, 294, 294))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(txtsintomas8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(274, 274, 274))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(txtsintomas9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(185, 185, 185))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jRadioButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(377, 377, 377))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(txtsintomas10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(111, 111, 111))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jRadioButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(361, 361, 361))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(txtPeso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(32, 32, 32))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(25, 25, 25)
-                        .addComponent(jRadioButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(110, 110, 110))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(20, 20, 20))
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        painelManual1Layout.setVerticalGroup(
-            painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelManual1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtPeso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6)
-                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(29, 29, 29)
-                .addComponent(txtSintoma1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6)
-                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
-                .addComponent(txtsintomas7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6)
-                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
-                .addComponent(txtsintomas8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6)
-                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
-                .addComponent(txtsintomas9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6)
-                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
-                .addComponent(txtsintomas10, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addGap(6, 6, 6)
-                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(33, 33, 33))
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
-
-        painelManual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtPeso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPeso.setText("[1] – Insira o Peso:");
-        painelManual.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 56, -1, -1));
-
-        txtsintomas3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas3.setText("[2] – Altura do Paciente:");
-        painelManual.add(txtsintomas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
-
-        txtSintoma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtSintoma.setText("[3] – Pressão Sistólica:");
-        painelManual.add(txtSintoma, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 102, -1, -1));
-
-        txtsintomas5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas5.setText("[4] – Pressão Disatólica:");
-        painelManual.add(txtsintomas5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 144, -1));
-
-        txtsintomas6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas6.setText("[5] – Atividades Física:");
-        painelManual.add(txtsintomas6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 148, -1, -1));
-
-        txtTitulo2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtTitulo2.setText("Questionário Médico");
-        painelManual.add(txtTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 15, 492, -1));
-
-        spnPressaoSistolica.setModel(new javax.swing.SpinnerNumberModel(120, 20, 300, 10));
-        painelManual.add(spnPressaoSistolica, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 100, 80, -1));
-
-        spnPeso.setModel(new javax.swing.SpinnerNumberModel(50, 20, 300, 1));
-        painelManual.add(spnPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 56, 80, -1));
-
-        spnPressaoDiastolica.setModel(new javax.swing.SpinnerNumberModel(80, 20, 200, 10));
-        painelManual.add(spnPressaoDiastolica, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 70, -1));
-
-        spnAtividade.setModel(new javax.swing.SpinnerNumberModel(0, 0, 4, 1));
-        painelManual.add(spnAtividade, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 146, 80, -1));
-
-        txtsintomas4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas4.setText("[6] – Avaliação Médico");
-        painelManual.add(txtsintomas4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 144, -1));
-        painelManual.add(txtAvaliacaoMedica, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 50, -1));
-        painelManual.add(txtAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 50, -1));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(painelManual1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(painelManual, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(33, 33, 33))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addGap(136, 136, 136)
-                    .addComponent(btLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                    .addGap(59, 59, 59)
-                    .addComponent(btEnviarDiagnostico, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                    .addGap(117, 117, 117)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(painelManual, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTitulo3, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(painelManual1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(73, 73, 73)
-                .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                .addGap(63, 63, 63))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(729, 729, 729)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btEnviarDiagnostico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGap(225, 225, 225)))
-        );
-
-        jScrollPane1.setViewportView(jPanel1);
-
-        getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
@@ -503,6 +413,10 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.ButtonGroup grpResposta6;
     private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton11;
@@ -520,7 +434,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel painelManual;
     private javax.swing.JPanel painelManual1;
     private javax.swing.JSpinner spnAtividade;

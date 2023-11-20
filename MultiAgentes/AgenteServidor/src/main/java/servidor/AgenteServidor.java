@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package servidor;
+
 import model.DadosInterface;
 
 import java.io.*;
@@ -12,7 +9,7 @@ public class AgenteServidor {
     private static final String MULTICAST_ADDRESS = "224.0.0.1";
     private static final int MULTICAST_PORT = 12345;
 
-    public void iniciarServidor(AgenteControlador controlador){
+    public void iniciarServidor(AgenteControlador controlador) {
         try {
             InetAddress group = InetAddress.getByName(MULTICAST_ADDRESS);
             MulticastSocket socket = new MulticastSocket(MULTICAST_PORT);
@@ -25,8 +22,15 @@ public class AgenteServidor {
 
                 ByteArrayInputStream byteStream = new ByteArrayInputStream(packet.getData());
                 try (ObjectInputStream objectStream = new ObjectInputStream(byteStream)) {
-                    DadosInterface dados = (DadosInterface) objectStream.readObject();
-                    controlador.processarDados(dados);
+                    Object obj = objectStream.readObject();
+                    if (obj instanceof DadosInterface dados) {
+                        // Enviar uma string de volta para a interface
+                        String mensagemParaInterface = controlador.processarDados(dados);
+                        enviarRespostaParaInterface(mensagemParaInterface, socket, packet.getAddress(), packet.getPort());
+                    } else {
+                        String mensagemParaInterface = ("Objeto recebido não é do tipo DadosInterface");
+                        enviarRespostaParaInterface(mensagemParaInterface, socket, packet.getAddress(), packet.getPort());
+                    }
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -35,5 +39,10 @@ public class AgenteServidor {
             e.printStackTrace();
         }
     }
-}
 
+    private void enviarRespostaParaInterface(String mensagem, DatagramSocket socket, InetAddress address, int port) throws IOException {
+        byte[] responseData = mensagem.getBytes();
+        DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length, address, port);
+        socket.send(responsePacket);
+    }
+}

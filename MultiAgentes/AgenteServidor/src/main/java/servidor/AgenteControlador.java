@@ -1,37 +1,54 @@
 package servidor;
 
-import agentes.*;
 import model.DadosInterface;
+import agentes.*;
 
-public class AgenteControlador {
-    private final AgenteServidor agenteServidor;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-    public AgenteControlador() {
-        this.agenteServidor = new AgenteServidor();
+public class AgenteControlador{
+    private AgenteServidor servidor;
+    
+    public AgenteControlador(){
+        this.servidor = new AgenteServidor();
+    }
+    
+    public List<Double> processar(DadosInterface dados) {
+        List<Agente> agentes = List.of(
+                new AgObesidade(dados),
+                new AgSedentar(dados),
+                new AgPressaoSist(dados),
+                new AgPressaoDias(dados),
+                new AgTabagista(dados),
+                new AgProfissional(dados)
+        );
+        
+        List<Double> entradas = new ArrayList();
+        
+        agentes.forEach(agente -> {
+            Thread thread = new Thread(() -> {
+                entradas.add(agente.avaliar());
+            });
+            thread.start();
+        });
+        Collections.shuffle(entradas);
+        return entradas;
     }
 
-    public void iniciarServidor() {
-        agenteServidor.iniciarServidor(this);
+    public String processarDados(DadosInterface dados){
+        List<Double> entradasLpa2v = processar(dados);
+        String mensagem = ControleLPA2V.iniciarAlgoritmo(entradasLpa2v);
+        if (mensagem != null) {
+            mensagem = "Não foi possível realizar a operação";
+        }
+        return mensagem;
     }
-
+    
     public static void main(String[] args) {
         AgenteControlador controlador = new AgenteControlador();
-        controlador.iniciarServidor();
+        // Exibe a interface do usuário
+        controlador.servidor.iniciarServidor(controlador);
     }
-
-    void processarDados(DadosInterface dados) {
-        double altura = dados.getAltura();
-        double peso = dados.getPeso();
-        double pressaoSistolica = dados.getPressaoSistolica();
-        double pressaoDiastolica = dados.getPressaoDiastolica();
-        double atividade = dados.getAtividade();
-        double pontuacaoTotal = dados.getPontuacaoTotal();
-        double avaliacaoMedica = dados.getAvaliacaoMedica();
-        
-        double agenteObsidade = AgObesidade.avaliarRiscoCardiaco(peso, altura);
-        double agentePressaoDias = AgPressaoDias.avaliarRiscoPressaoDiastolica(pressaoDiastolica);
-        double agentePressaoSistolica = AgPressaoSist.avaliarPressaoSistolica(pressaoSistolica);
-        double agenteSedentar = AgSedentar.avaliarBeneficiosSaude(atividade);
-        double agenteTabagista = AgTabagista.avaliarDependenciaNicotina(pontuacaoTotal);
-    }
+    
 }

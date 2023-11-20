@@ -1,8 +1,17 @@
 package agentes;
 
-public class AgPressaoDias {
-    public static double avaliarRiscoPressaoDiastolica(double pressaoDiastolica) {
-        double pertinencia = 0.0;
+
+import model.DadosInterface;
+
+public class AgPressaoDias extends Agente {
+    public AgPressaoDias(DadosInterface dados) {
+        super(dados);
+    }
+
+    @Override
+    public double avaliar() {
+        double pressaoDiastolica = dados.getPressaoDiastolica(); // Supondo que o dado necessário seja obtido de DadosInterface
+        double pertinencia;
 
         if (pressaoDiastolica >= 80 && pressaoDiastolica <= 90) {
             pertinencia = (double) (pressaoDiastolica - 80) / (90 - 80);

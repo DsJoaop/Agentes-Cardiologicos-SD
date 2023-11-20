@@ -1,6 +1,8 @@
 package model;
 
-public class DadosInterface {
+import java.io.Serializable;
+
+public class DadosInterface implements Serializable{
     private double altura;
     private double peso;
     private double pressaoSistolica;

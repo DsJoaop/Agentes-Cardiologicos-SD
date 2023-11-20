@@ -1,11 +1,22 @@
 package agentes;
 
-public class AgObesidade {
-    private static double calcularIMC(double peso, double altura) {
+
+import model.DadosInterface;
+
+public class AgObesidade extends Agente {
+    public AgObesidade(DadosInterface dados) {
+        super(dados);
+    }
+
+    private double calcularIMC(double peso, double altura) {
         return peso / (altura * altura);
     }
 
-    public static double avaliarRiscoCardiaco(double peso, double altura) {
+    @Override
+    public double avaliar() {
+        double peso = dados.getPeso(); // Supondo que o dado necessário seja obtido de DadosInterface
+        double altura = dados.getAltura(); // Supondo que o dado necessário seja obtido de DadosInterface
+
         double imc = calcularIMC(peso, altura);
         double pertinencia = 0.0;
 
