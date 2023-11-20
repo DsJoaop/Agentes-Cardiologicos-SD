@@ -4,17 +4,14 @@ import model.DadosInterface;
 import agentes.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.CountDownLatch;
-import model.ControleLPA2V;
+import model.AvaliadorRiscoCardiaco;
 
 public class ControllerServer{
-    private AgenteServer servidor;
+    private Servidor servidor;
     
     public ControllerServer(){
-        this.servidor = new AgenteServer();
+        this.servidor = new Servidor();
     }
     
   
@@ -38,21 +35,20 @@ public class ControllerServer{
         return entradas;
     }
 
-// Modificações em ControllerServer.processarDados
-public String processarDados(DadosInterface dados) {
-    List<Double> entradasLpa2v = processar(dados);
-    String mensagem = ControleLPA2V.iniciarAlgoritmo(entradasLpa2v);
-    System.out.println("\n\nResposta LPA2v: " + mensagem);
-    if (mensagem == null) {
-        return "Erro no algoritmo";
+    public String processarDados(DadosInterface dados) {
+        List<Double> entradasLpa2v = processar(dados);
+        String mensagem = AvaliadorRiscoCardiaco.avaliarRiscoCardiaco(entradasLpa2v);
+        System.out.println("\n\nResposta LPA2v: " + mensagem);
+        if (mensagem == null) {
+            return "Erro no algoritmo";
+        }
+        return mensagem;
     }
-    return mensagem;
-}
 
     
     public static void main(String[] args) {
         ControllerServer controlador = new ControllerServer();
-        // Exibe a interface do usuário
+        
         controlador.servidor.iniciarServidor(controlador);
     }
 }

@@ -8,8 +8,8 @@ import view.AgenteUI;
 
 public class ControllerUI {
     private final AgenteUI interfaceUsuario;
-    private static final String MULTICAST_ADDRESS = "224.0.0.1";
-    private static final int MULTICAST_PORT = 52684;
+    private static final String MULTICAST_ADDRESS = "230.0.0.1";
+    private static final int MULTICAST_PORT = 12345;
 
     public ControllerUI() {
         this.interfaceUsuario = new AgenteUI(this);

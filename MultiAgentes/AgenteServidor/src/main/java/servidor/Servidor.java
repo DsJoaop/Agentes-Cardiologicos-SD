@@ -5,16 +5,16 @@ import java.net.*;
 import model.DadosInterface;
 import model.DadosServidor;
 
-public class AgenteServer {
-    private static final String MULTICAST_ADDRESS = "224.0.0.1";
-    private static final int MULTICAST_PORT = 52684;
+public class Servidor {
+    private static final String MULTICAST_ADDRESS = "230.0.0.1";
+    private static final int MULTICAST_PORT = 12345;
 
     public void iniciarServidor(ControllerServer controlador) {
         try {
             InetAddress group = InetAddress.getByName(MULTICAST_ADDRESS);
             MulticastSocket socket = new MulticastSocket(MULTICAST_PORT);
             socket.joinGroup(group);
-
+            System.out.println("Servidor iniciado.");
             while (true) {
                 byte[] buffer = new byte[1024];
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
