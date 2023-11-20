@@ -120,7 +120,7 @@ public class Interface extends javax.swing.JFrame {
         txtTitulo13.setText("Diagnóstico");
         jPanel.add(txtTitulo13, java.awt.BorderLayout.PAGE_START);
 
-        jPanel1.add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 537, 460, 160));
+        jPanel1.add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 537, 500, 160));
 
         painelManual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -183,106 +183,179 @@ public class Interface extends javax.swing.JFrame {
 
         painelManual.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 60, 100));
 
-        jPanel1.add(painelManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 6, -1, 170));
+        jPanel1.add(painelManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 6, 490, 160));
 
-        painelManual1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jScrollPane2.setBorder(null);
 
         txtPeso1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtPeso1.setText("[1] – Quanto tempo após acordar você fuma seu primeiro cigarro? ");
-        painelManual1.add(txtPeso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 430, -1));
 
         txtSintoma1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtSintoma1.setText("[2] – Você acha difícil não fumar em lugares proibidos? ");
-        painelManual1.add(txtSintoma1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 407, -1));
 
         txtsintomas7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtsintomas7.setText("[3] – Qual cigarro do dia lhe dá mais satisfação? ");
-        painelManual1.add(txtsintomas7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 362, -1));
 
         txtsintomas8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtsintomas8.setText("[4] – Quantos cigarros fuma por dia? ");
-        painelManual1.add(txtsintomas8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 293, -1));
 
         txtsintomas9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtsintomas9.setText("[5] – Você fuma mais frequentemente pela manhã? ");
-        painelManual1.add(txtsintomas9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 382, -1));
 
         txtsintomas10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtsintomas10.setText("[6] – Você fuma mesmo doente, quando precisa ficar de cama?");
-        painelManual1.add(txtsintomas10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 410, 24));
 
         grpResposta1.add(jRadioButton1);
         jRadioButton1.setText("Entre 6 e 30 minutos");
-        painelManual1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 147, -1));
 
         grpResposta1.add(jRadioButton2);
         jRadioButton2.setText("5 minutos");
-        painelManual1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 91, -1));
 
         grpResposta1.add(jRadioButton5);
         jRadioButton5.setText("Entre 31 e 60 minutos");
-        painelManual1.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 153, -1));
 
         grpResposta1.add(jRadioButton6);
         jRadioButton6.setText("Após 60 minutos");
-        painelManual1.add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 128, -1));
 
         grpResposta2.add(jRadioButton3);
         jRadioButton3.setText("Sim");
-        painelManual1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 50, -1));
 
         grpResposta2.add(jRadioButton4);
         jRadioButton4.setText("Não");
-        painelManual1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 75, -1));
 
         grpResposta3.add(jRadioButton9);
         jRadioButton9.setText("Outros");
-        painelManual1.add(jRadioButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 88, -1));
 
         grpResposta3.add(jRadioButton10);
         jRadioButton10.setText("O primeiro da manhã");
-        painelManual1.add(jRadioButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 140, -1));
 
         grpResposta4.add(jRadioButton11);
         jRadioButton11.setText("Menos de 10");
-        painelManual1.add(jRadioButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 107, -1));
 
         grpResposta4.add(jRadioButton12);
         jRadioButton12.setText("De 11 a 20");
-        painelManual1.add(jRadioButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 96, -1));
 
         grpResposta4.add(jRadioButton15);
         jRadioButton15.setText("De 21 a 30");
-        painelManual1.add(jRadioButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 96, -1));
 
         grpResposta4.add(jRadioButton16);
         jRadioButton16.setText("Mais de 31");
-        painelManual1.add(jRadioButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 97, -1));
 
         grpResposta5.add(jRadioButton17);
         jRadioButton17.setText("Sim");
-        painelManual1.add(jRadioButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 60, -1));
 
         grpResposta5.add(jRadioButton18);
         jRadioButton18.setText("Não");
-        painelManual1.add(jRadioButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 74, -1));
 
         grpResposta6.add(jRadioButton19);
         jRadioButton19.setText("Sim");
-        painelManual1.add(jRadioButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 50, -1));
 
         grpResposta6.add(jRadioButton20);
         jRadioButton20.setText("Não");
-        painelManual1.add(jRadioButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 82, -1));
 
         txtTitulo3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtTitulo3.setText("Questionário Tabagismo");
-        painelManual1.add(txtTitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 470, 30));
+
+        javax.swing.GroupLayout painelManual1Layout = new javax.swing.GroupLayout(painelManual1);
+        painelManual1.setLayout(painelManual1Layout);
+        painelManual1Layout.setHorizontalGroup(
+            painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(painelManual1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPeso1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSintoma1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsintomas7, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jRadioButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsintomas8, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(jRadioButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jRadioButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jRadioButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsintomas9, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jRadioButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsintomas10, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jRadioButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        painelManual1Layout.setVerticalGroup(
+            painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelManual1Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(txtTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPeso1)
+                .addGap(10, 10, 10)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton1))
+                .addGap(9, 9, 9)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jRadioButton6))
+                .addGap(18, 18, 18)
+                .addComponent(txtSintoma1)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton4))
+                .addGap(18, 18, 18)
+                .addComponent(txtsintomas7)
+                .addGap(10, 10, 10)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton10)
+                    .addComponent(jRadioButton9))
+                .addGap(18, 18, 18)
+                .addComponent(txtsintomas8)
+                .addGap(10, 10, 10)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton11)
+                    .addComponent(jRadioButton12)
+                    .addComponent(jRadioButton15)
+                    .addComponent(jRadioButton16))
+                .addGap(18, 18, 18)
+                .addComponent(txtsintomas9)
+                .addGap(10, 10, 10)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton17)
+                    .addComponent(jRadioButton18))
+                .addGap(18, 18, 18)
+                .addComponent(txtsintomas10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton19)
+                    .addComponent(jRadioButton20))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
 
         jScrollPane2.setViewportView(painelManual1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 490, 290));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 490, 310));
 
         btLimpar.setBackground(new java.awt.Color(255, 0, 0));
         btLimpar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
