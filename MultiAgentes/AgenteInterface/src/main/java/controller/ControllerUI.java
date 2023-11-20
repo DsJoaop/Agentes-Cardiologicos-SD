@@ -53,15 +53,23 @@ public class ControllerUI {
             DatagramPacket receivedPacket = new DatagramPacket(buffer, buffer.length);
             socket.receive(receivedPacket);
 
-            // Converter os bytes recebidos de volta para uma String
-            String mensagemRecebida = new String(receivedPacket.getData(), 0, receivedPacket.getLength());
-            return mensagemRecebida;
+            // Preparar para ler a resposta como um objeto
+            ByteArrayInputStream byteStreamResponse = new ByteArrayInputStream(receivedPacket.getData());
+            ObjectInputStream objectStreamResponse = new ObjectInputStream(byteStreamResponse);
+
+            // Ler o objeto recebido como resposta
+            Object respostaObjeto = objectStreamResponse.readObject();
+            if (respostaObjeto instanceof String string) {
+                return string;
+            }
         }
-    } catch (IOException e) {
+    } catch (IOException | ClassNotFoundException e) {
         e.printStackTrace();
     }
     return null;
 }
+
+
 
     
     public String enviarDiagnostico(DadosInterface dados) {

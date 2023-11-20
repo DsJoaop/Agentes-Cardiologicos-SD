@@ -39,10 +39,7 @@ public class ControllerServer{
 
     public String processarDados(DadosInterface dados){
         List<Double> entradasLpa2v = processar(dados);
-        String mensagem = ControleLPA2V.iniciarAlgoritmo(entradasLpa2v);
-        if (mensagem != null) {
-            mensagem = "Não foi possível realizar a operação";
-        }
+        String mensagem = "Teste teste";
         return mensagem;
     }
     
