@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AgenteControlador{
-    private Servidor servidor;
+public class ControllerServer{
+    private AgenteServer servidor;
     
-    public AgenteControlador(){
-        this.servidor = new Servidor();
+    public ControllerServer(){
+        this.servidor = new AgenteServer();
     }
     
     public List<Double> processar(DadosInterface dados) {
@@ -47,7 +47,7 @@ public class AgenteControlador{
     }
     
     public static void main(String[] args) {
-        AgenteControlador controlador = new AgenteControlador();
+        ControllerServer controlador = new ControllerServer();
         // Exibe a interface do usuário
         controlador.servidor.iniciarServidor(controlador);
     }

@@ -5,11 +5,11 @@ import model.DadosInterface;
 import java.io.*;
 import java.net.*;
 
-public class Servidor {
+public class AgenteServer {
     private static final String MULTICAST_ADDRESS = "224.0.0.1";
     private static final int MULTICAST_PORT = 52684;
 
-    public void iniciarServidor(AgenteControlador controlador) {
+    public void iniciarServidor(ControllerServer controlador) {
        try {
         InetAddress group = InetAddress.getByName(MULTICAST_ADDRESS);
         MulticastSocket socket = new MulticastSocket(MULTICAST_PORT);

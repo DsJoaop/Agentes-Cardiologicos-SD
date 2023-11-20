@@ -1,7 +1,7 @@
 package view;
 
 
-import controller.ControllerInterface;
+import controller.ControllerUI;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.JSpinner;
@@ -15,13 +15,13 @@ import model.ValidarQuest;
  *
  * @author joaop
  */
-public class Interface extends javax.swing.JFrame {
-    private final ControllerInterface controlador;
+public class AgenteUI extends javax.swing.JFrame {
+    private final ControllerUI controlador;
     /**
      * Creates new form Interface
      * @param controlador
      */
-    public Interface(ControllerInterface controlador) {
+    public AgenteUI(ControllerUI controlador) {
         
         try {
             // Define o Look and Feel padrão do sistema
@@ -268,6 +268,14 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(painelManual1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton5)
+                            .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtPeso1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSintoma1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(painelManual1Layout.createSequentialGroup()
@@ -297,18 +305,7 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(painelManual1Layout.createSequentialGroup()
                         .addComponent(jRadioButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(jRadioButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(painelManual1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelManual1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jRadioButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         painelManual1Layout.setVerticalGroup(
             painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,14 +316,13 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(txtPeso1)
                 .addGap(10, 10, 10)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton6))
+                    .addComponent(jRadioButton1)
                     .addGroup(painelManual1Layout.createSequentialGroup()
                         .addComponent(jRadioButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton5)))
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton5)
+                            .addComponent(jRadioButton6))))
                 .addGap(18, 18, 18)
                 .addComponent(txtSintoma1)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
