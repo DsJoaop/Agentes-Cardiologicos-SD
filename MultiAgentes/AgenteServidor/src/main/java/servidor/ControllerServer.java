@@ -1,12 +1,12 @@
 package servidor;
 
-import model.ControleLPA2V;
 import model.DadosInterface;
 import agentes.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import model.ControleLPA2V;
 
 public class ControllerServer{
     private AgenteServer servidor;
@@ -39,7 +39,10 @@ public class ControllerServer{
 
     public String processarDados(DadosInterface dados){
         List<Double> entradasLpa2v = processar(dados);
-        String mensagem = "Teste teste";
+        String mensagem = ControleLPA2V.iniciarAlgoritmo(entradasLpa2v);
+        if (mensagem == null) {
+            return "Erro no algoritmo";
+        }
         return mensagem;
     }
     
@@ -48,5 +51,4 @@ public class ControllerServer{
         // Exibe a interface do usuário
         controlador.servidor.iniciarServidor(controlador);
     }
-    
 }

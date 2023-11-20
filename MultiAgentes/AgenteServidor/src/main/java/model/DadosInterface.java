@@ -1,8 +1,12 @@
 package model;
 
 import java.io.Serializable;
+import java.util.UUID;
 
-public class DadosInterface implements Serializable{
+public class DadosInterface implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private final UUID messageId;
     private double altura;
     private double peso;
     private double pressaoSistolica;
@@ -14,6 +18,7 @@ public class DadosInterface implements Serializable{
     public DadosInterface(double altura, double peso, double pressaoSistolica,
                            double pressaoDiastolica, double atividade,
                            double pontuacaoTotal, double avaliacaoMedica) {
+        this.messageId = UUID.randomUUID();
         this.altura = altura;
         this.peso = peso;
         this.pressaoSistolica = pressaoSistolica;
@@ -21,6 +26,10 @@ public class DadosInterface implements Serializable{
         this.atividade = atividade;
         this.pontuacaoTotal = pontuacaoTotal;
         this.avaliacaoMedica = avaliacaoMedica;
+    }
+
+    public UUID getMessageId() {
+        return messageId;
     }
 
     public double getAltura() {
