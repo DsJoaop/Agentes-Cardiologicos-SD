@@ -9,6 +9,7 @@ public class AvaliadorRiscoCardiaco {
     public static final double LIMIAR_FALSO = -0.7;
     public static final double LIMIAR_INCONSISTENTE = 0.7;
     public static final double LIMIAR_INDETERMINADO = -0.7;
+    public static final double LIMIAR_DESFAVORAVEL = 0.3;
 
     public static String avaliarRiscoCardiaco(List<Double> entradas) {
         List<P> pontos = criarPontos(entradas);

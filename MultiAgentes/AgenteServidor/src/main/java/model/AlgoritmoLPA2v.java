@@ -38,8 +38,9 @@ public class AlgoritmoLPA2v {
     private static String definirEstadoLogico(P ponto) {
         double grauCerteza = calcularGrauCerteza(ponto.getMi(), ponto.getLambda());
         double grauContradicao = calcularGrauContradicao(ponto.getMi(), ponto.getLambda());
+        double grauEvidenciaDesfavoravel = definirGrauEvidenciaDesfavoravel(ponto.getMi());
 
-        if (grauCerteza >= AvaliadorRiscoCardiaco.LIMIAR_VERDADEIRO) {
+     if (grauCerteza >= AvaliadorRiscoCardiaco.LIMIAR_VERDADEIRO) {
             return "Verdadeiro. O paciente possui 100% de chance de risco cardíaco.";
         } else if (grauCerteza <= AvaliadorRiscoCardiaco.LIMIAR_FALSO) {
             return "Falso. O paciente não possui risco cardíaco.";
@@ -47,6 +48,8 @@ public class AlgoritmoLPA2v {
             return "Inconsistente. As informações são contraditórias.";
         } else if (grauContradicao <= AvaliadorRiscoCardiaco.LIMIAR_INDETERMINADO) {
             return "Indeterminado. As informações não foram suficientes para estabelecer uma resposta.";
+        } else if (grauEvidenciaDesfavoravel >= AvaliadorRiscoCardiaco.LIMIAR_DESFAVORAVEL) {
+            return "Desfavorável. O paciente possui evidência desfavorável de risco cardíaco.";
         }
 
         if ((grauCerteza >= 0 && grauCerteza < AvaliadorRiscoCardiaco.LIMIAR_VERDADEIRO) && (grauContradicao >= 0 && grauContradicao < AvaliadorRiscoCardiaco.LIMIAR_INCONSISTENTE)) {
