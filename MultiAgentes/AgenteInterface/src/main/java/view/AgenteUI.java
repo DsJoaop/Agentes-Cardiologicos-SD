@@ -1,15 +1,14 @@
 package view;
 
-
 import controller.ControllerUI;
-import java.awt.Color;
 import javax.swing.ButtonGroup;
+import javax.swing.JComboBox;
 import javax.swing.JSpinner;
-import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import model.DadosInterface;
 import model.ValidarQuest;
+
 
 /**
  *
@@ -24,15 +23,18 @@ public class AgenteUI extends javax.swing.JFrame {
     public AgenteUI(ControllerUI controlador) {
         
         try {
-            // Define o Look and Feel padrão do sistema
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-            System.out.println("Erro ao definir o Look and Feel do sistema: " + e.getMessage());
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AgenteUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
         initComponents();
         this.controlador = controlador;
-        painelManual.setEnabled(true);
     }
 
     /**
@@ -50,40 +52,10 @@ public class AgenteUI extends javax.swing.JFrame {
         grpResposta4 = new javax.swing.ButtonGroup();
         grpResposta5 = new javax.swing.ButtonGroup();
         grpResposta6 = new javax.swing.ButtonGroup();
-        jSpinner1 = new javax.swing.JSpinner();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel = new javax.swing.JPanel();
-        jScrollPane = new javax.swing.JScrollPane();
-        txtDiagnostico = new javax.swing.JTextArea();
-        txtTitulo13 = new javax.swing.JLabel();
-        painelManual = new javax.swing.JPanel();
-        txtTitulo2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        spnPeso = new javax.swing.JSpinner();
-        spnPressaoSistolica = new javax.swing.JSpinner();
-        spnAtividade = new javax.swing.JSpinner();
-        jPanel3 = new javax.swing.JPanel();
-        txtPeso = new javax.swing.JLabel();
-        txtSintoma = new javax.swing.JLabel();
-        txtsintomas6 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        txtsintomas3 = new javax.swing.JLabel();
-        txtsintomas5 = new javax.swing.JLabel();
-        txtsintomas4 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        txtAltura = new javax.swing.JTextField();
-        spnPressaoDiastolica = new javax.swing.JSpinner();
-        txtAvaliacaoMedica = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         painelManual1 = new javax.swing.JPanel();
-        txtPeso1 = new javax.swing.JLabel();
-        txtSintoma1 = new javax.swing.JLabel();
-        txtsintomas7 = new javax.swing.JLabel();
-        txtsintomas8 = new javax.swing.JLabel();
-        txtsintomas9 = new javax.swing.JLabel();
-        txtsintomas10 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton22 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
@@ -94,126 +66,72 @@ public class AgenteUI extends javax.swing.JFrame {
         jRadioButton12 = new javax.swing.JRadioButton();
         jRadioButton15 = new javax.swing.JRadioButton();
         jRadioButton16 = new javax.swing.JRadioButton();
+        txtPeso1 = new javax.swing.JLabel();
+        txtSintoma1 = new javax.swing.JLabel();
+        txtsintomas7 = new javax.swing.JLabel();
+        txtsintomas8 = new javax.swing.JLabel();
+        txtsintomas9 = new javax.swing.JLabel();
+        txtsintomas10 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton17 = new javax.swing.JRadioButton();
         jRadioButton18 = new javax.swing.JRadioButton();
         jRadioButton19 = new javax.swing.JRadioButton();
         jRadioButton20 = new javax.swing.JRadioButton();
-        txtTitulo3 = new javax.swing.JLabel();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jRadioButton8 = new javax.swing.JRadioButton();
+        jRadioButton13 = new javax.swing.JRadioButton();
+        jRadioButton14 = new javax.swing.JRadioButton();
+        jRadioButton21 = new javax.swing.JRadioButton();
         jPanel6 = new javax.swing.JPanel();
         btLimpar = new javax.swing.JButton();
         btEnviarDiagnostico = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        txtPeso4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        txtPeso3 = new javax.swing.JLabel();
+        txtsintomas11 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        spnPeso = new javax.swing.JSpinner();
+        txtAltura = new javax.swing.JTextField();
+        jPanel33 = new javax.swing.JPanel();
+        jPanel34 = new javax.swing.JPanel();
+        txtPeso10 = new javax.swing.JLabel();
+        cmbAvaliacao = new javax.swing.JComboBox<>();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        txtSintoma2 = new javax.swing.JLabel();
+        txtsintomas5 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        spnPressaoSistolica = new javax.swing.JSpinner();
+        spnPressaoDiastolica = new javax.swing.JSpinner();
+        jPanel35 = new javax.swing.JPanel();
+        jPanel36 = new javax.swing.JPanel();
+        txtPeso2 = new javax.swing.JLabel();
+        cmbAtividade = new javax.swing.JComboBox<>();
+        jPanel = new javax.swing.JPanel();
+        jScrollPane = new javax.swing.JScrollPane();
+        txtDiagnostico = new javax.swing.JTextArea();
+        txtTitulo13 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        txtTitulo4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel.setLayout(new java.awt.BorderLayout());
-
-        txtDiagnostico.setColumns(20);
-        txtDiagnostico.setRows(5);
-        jScrollPane.setViewportView(txtDiagnostico);
-
-        jPanel.add(jScrollPane, java.awt.BorderLayout.CENTER);
-
-        txtTitulo13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtTitulo13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtTitulo13.setText("Diagnóstico");
-        jPanel.add(txtTitulo13, java.awt.BorderLayout.PAGE_START);
-
-        jPanel1.add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 970, 160));
-
-        painelManual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtTitulo2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtTitulo2.setText("Questionário Médico");
-        painelManual.add(txtTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 460, -1));
-
-        jPanel2.setLayout(new java.awt.GridLayout(3, 1, 50, 20));
-
-        spnPeso.setModel(new javax.swing.SpinnerNumberModel(50, 20, 300, 1));
-        jPanel2.add(spnPeso);
-
-        spnPressaoSistolica.setModel(new javax.swing.SpinnerNumberModel(120, 20, 300, 10));
-        jPanel2.add(spnPressaoSistolica);
-
-        spnAtividade.setModel(new javax.swing.SpinnerNumberModel(0, 0, 4, 1));
-        jPanel2.add(spnAtividade);
-
-        painelManual.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 80, 140));
-
-        jPanel3.setLayout(new java.awt.GridLayout(3, 0, 0, 20));
-
-        txtPeso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPeso.setText("[1] – Insira o Peso:");
-        jPanel3.add(txtPeso);
-
-        txtSintoma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtSintoma.setText("[3] – Pressão Sistólica:");
-        jPanel3.add(txtSintoma);
-
-        txtsintomas6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas6.setText("[5] – Atividades Física:");
-        jPanel3.add(txtsintomas6);
-
-        painelManual.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 150, 140));
-
-        jPanel4.setLayout(new java.awt.GridLayout(3, 0, 0, 20));
-
-        txtsintomas3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas3.setText("[2] – Altura do Paciente:");
-        jPanel4.add(txtsintomas3);
-
-        txtsintomas5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas5.setText("[4] – Pressão Disatólica:");
-        jPanel4.add(txtsintomas5);
-
-        txtsintomas4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtsintomas4.setText("[6] – Avaliação Médico");
-        jPanel4.add(txtsintomas4);
-
-        painelManual.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 160, 140));
-
-        jPanel5.setLayout(new java.awt.GridLayout(3, 0, 0, 20));
-        jPanel5.add(txtAltura);
-
-        spnPressaoDiastolica.setModel(new javax.swing.SpinnerNumberModel(80, 20, 200, 10));
-        jPanel5.add(spnPressaoDiastolica);
-        jPanel5.add(txtAvaliacaoMedica);
-
-        painelManual.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 60, 140));
-
-        jPanel1.add(painelManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 490, 220));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        txtPeso1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtPeso1.setText("[1] – Quanto tempo após acordar você fuma seu primeiro cigarro? ");
+        painelManual1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "QUESTIONÁRIO TABAGISMO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        txtSintoma1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtSintoma1.setText("[2] – Você acha difícil não fumar em lugares proibidos? ");
-
-        txtsintomas7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtsintomas7.setText("[3] – Qual cigarro do dia lhe dá mais satisfação? ");
-
-        txtsintomas8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtsintomas8.setText("[4] – Quantos cigarros fuma por dia? ");
-
-        txtsintomas9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtsintomas9.setText("[5] – Você fuma mais frequentemente pela manhã? ");
-
-        txtsintomas10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtsintomas10.setText("[6] – Você fuma mesmo doente, quando precisa ficar de cama?");
-
-        grpResposta1.add(jRadioButton1);
-        jRadioButton1.setText("Entre 6 e 30 minutos");
-
-        grpResposta1.add(jRadioButton2);
-        jRadioButton2.setText("5 minutos");
+        grpResposta5.add(jRadioButton22);
+        jRadioButton22.setText("Não fumo");
 
         grpResposta1.add(jRadioButton5);
         jRadioButton5.setText("Entre 31 e 60 minutos");
@@ -245,6 +163,30 @@ public class AgenteUI extends javax.swing.JFrame {
         grpResposta4.add(jRadioButton16);
         jRadioButton16.setText("Mais de 31");
 
+        txtPeso1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txtPeso1.setText("[1] – Quanto tempo após acordar você fuma o primeiro cigarro? ");
+
+        txtSintoma1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txtSintoma1.setText("[2] – Você acha difícil não fumar em lugares proibidos? ");
+
+        txtsintomas7.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txtsintomas7.setText("[3] – Qual cigarro do dia lhe dá mais satisfação? ");
+
+        txtsintomas8.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txtsintomas8.setText("[4] – Quantos cigarros fuma por dia? ");
+
+        txtsintomas9.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txtsintomas9.setText("[5] – Você fuma mais frequentemente pela manhã? ");
+
+        txtsintomas10.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        txtsintomas10.setText("[6] – Você fuma mesmo doente, quando precisa ficar de cama?");
+
+        grpResposta1.add(jRadioButton1);
+        jRadioButton1.setText("Entre 6 e 30 minutos");
+
+        grpResposta1.add(jRadioButton2);
+        jRadioButton2.setText("5 minutos");
+
         grpResposta5.add(jRadioButton17);
         jRadioButton17.setText("Sim");
 
@@ -257,116 +199,178 @@ public class AgenteUI extends javax.swing.JFrame {
         grpResposta6.add(jRadioButton20);
         jRadioButton20.setText("Não");
 
-        txtTitulo3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtTitulo3.setText("Questionário Tabagismo");
+        grpResposta4.add(jRadioButton7);
+        jRadioButton7.setText("Não fumo");
+
+        grpResposta2.add(jRadioButton8);
+        jRadioButton8.setText("Não fumo");
+
+        grpResposta3.add(jRadioButton13);
+        jRadioButton13.setText("Não fumo");
+
+        grpResposta1.add(jRadioButton14);
+        jRadioButton14.setText("Não fumo");
+
+        grpResposta6.add(jRadioButton21);
+        jRadioButton21.setText("Não fumo");
 
         javax.swing.GroupLayout painelManual1Layout = new javax.swing.GroupLayout(painelManual1);
         painelManual1.setLayout(painelManual1Layout);
         painelManual1Layout.setHorizontalGroup(
             painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelManual1Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPeso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addComponent(txtSintoma1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(4, 4, 4))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(txtsintomas7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(97, 97, 97))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(txtsintomas8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(101, 101, 101))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(txtsintomas9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(30, 30, 30))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(txtsintomas10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jRadioButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jRadioButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(170, 170, 170))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
                         .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(painelManual1Layout.createSequentialGroup()
-                                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton5)
-                                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txtSintoma1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jRadioButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(painelManual1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtsintomas7, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jRadioButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(painelManual1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jRadioButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtsintomas8, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jRadioButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(painelManual1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3)
-                                .addComponent(jRadioButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
-                                .addComponent(jRadioButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
-                                .addComponent(jRadioButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtsintomas9, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jRadioButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(painelManual1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jRadioButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(painelManual1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(jRadioButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPeso1)
-                            .addComponent(txtsintomas10))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(painelManual1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton5)
+                                .addGap(6, 6, 6)
+                                .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(6, 6, 6))
         );
         painelManual1Layout.setVerticalGroup(
             painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelManual1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(txtTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtPeso1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(15, 15, 15)
+                .addComponent(txtPeso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(painelManual1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton6))))
-                .addGap(18, 18, 18)
-                .addComponent(txtSintoma1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(1, 1, 1)
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(1, 1, 1)))
+                .addGap(6, 6, 6)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4))
+                    .addComponent(jRadioButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(txtsintomas7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSintoma1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton10)
-                    .addComponent(jRadioButton9))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jRadioButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(2, 2, 2)))
                 .addGap(18, 18, 18)
-                .addComponent(txtsintomas8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtsintomas7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton11)
-                    .addComponent(jRadioButton12)
-                    .addComponent(jRadioButton15)
-                    .addComponent(jRadioButton16))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jRadioButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(2, 2, 2)))
                 .addGap(18, 18, 18)
-                .addComponent(txtsintomas9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtsintomas8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton17)
-                    .addComponent(jRadioButton18))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jRadioButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(2, 2, 2)))
+                .addGap(6, 6, 6)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(txtsintomas9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
+                .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jRadioButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(painelManual1Layout.createSequentialGroup()
+                        .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(2, 2, 2)))
                 .addGap(18, 18, 18)
-                .addComponent(txtsintomas10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtsintomas10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
                 .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton19)
-                    .addComponent(jRadioButton20))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(jRadioButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(painelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jRadioButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(2, 2, 2))
         );
 
         jScrollPane2.setViewportView(painelManual1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 490, 200));
-
-        jPanel6.setLayout(new java.awt.GridLayout(1, 2, 60, 0));
+        jPanel6.setLayout(new java.awt.GridLayout(1, 1, 30, 20));
 
         btLimpar.setBackground(new java.awt.Color(255, 0, 0));
         btLimpar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -388,22 +392,236 @@ public class AgenteUI extends javax.swing.JFrame {
         });
         jPanel6.add(btEnviarDiagnostico);
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 370, 40));
+        jPanel7.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel8.setLayout(new java.awt.GridLayout(2, 0, 0, 10));
+        jPanel7.add(jPanel8);
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        txtPeso4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtPeso4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtPeso4.setText("Gerenciar ações");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(txtPeso4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(8, 8, 8))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPeso4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(67, 67, 67)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(0, 0, 0))
+        );
+
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), "IMC", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        jPanel13.setLayout(new java.awt.GridLayout(2, 0));
+
+        txtPeso3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPeso3.setText("Insira o Peso:");
+        jPanel13.add(txtPeso3);
+
+        txtsintomas11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas11.setText("Insira a Altura:");
+        jPanel13.add(txtsintomas11);
+
+        jPanel14.setLayout(new java.awt.GridLayout(2, 1, 50, 10));
+
+        spnPeso.setModel(new javax.swing.SpinnerNumberModel(50, 20, 300, 1));
+        jPanel14.add(spnPeso);
+        jPanel14.add(txtAltura);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 66, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), "AVALIAÇÃO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel33.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel34.setLayout(new java.awt.GridLayout());
+
+        txtPeso10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPeso10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtPeso10.setText("Avaliação do risco cardíaco:");
+        jPanel34.add(txtPeso10);
+
+        jPanel33.add(jPanel34);
+
+        cmbAvaliacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0" }));
+        cmbAvaliacao.setSelectedIndex(-1);
+        jPanel33.add(cmbAvaliacao);
+
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Pressão Arterial", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        jPanel11.setLayout(new java.awt.GridLayout(2, 0));
+
+        txtSintoma2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtSintoma2.setText("Pressão Sistólica:");
+        jPanel11.add(txtSintoma2);
+
+        txtsintomas5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtsintomas5.setText("Pressão Diastólica:");
+        jPanel11.add(txtsintomas5);
+
+        jPanel12.setLayout(new java.awt.GridLayout(2, 1, 0, 10));
+
+        spnPressaoSistolica.setModel(new javax.swing.SpinnerNumberModel(120, 20, 300, 10));
+        jPanel12.add(spnPressaoSistolica);
+
+        spnPressaoDiastolica.setModel(new javax.swing.SpinnerNumberModel(80, 20, 200, 10));
+        jPanel12.add(spnPressaoDiastolica);
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jPanel35.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), "QTDE", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel35.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel36.setLayout(new java.awt.GridLayout(2, 0));
+
+        txtPeso2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPeso2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtPeso2.setText("Atividades semanais:");
+        jPanel36.add(txtPeso2);
+
+        cmbAtividade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4" }));
+        cmbAtividade.setSelectedIndex(-1);
+        jPanel36.add(cmbAtividade);
+
+        jPanel35.add(jPanel36);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(9, 9, 9))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
+        );
+
+        jPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel.setLayout(new java.awt.BorderLayout());
+
+        txtDiagnostico.setColumns(20);
+        txtDiagnostico.setRows(5);
+        jScrollPane.setViewportView(txtDiagnostico);
+
+        jPanel.add(jScrollPane, java.awt.BorderLayout.CENTER);
+
+        txtTitulo13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtTitulo13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTitulo13.setText("Diagnóstico");
+        jPanel.add(txtTitulo13, java.awt.BorderLayout.PAGE_START);
+
+        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
+
+        txtTitulo4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtTitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTitulo4.setText("AVALIADOR DE RISCO CARDÍACO");
+        jPanel3.add(txtTitulo4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1011, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
 
         pack();
@@ -411,76 +629,16 @@ public class AgenteUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
-        ButtonGroup[] grpBotoes = {grpResposta1, grpResposta2, grpResposta3, grpResposta4, grpResposta5, grpResposta6};      
-        for (ButtonGroup grupo : grpBotoes) {
-            grupo.clearSelection();
-        }
-        JSpinner[] grupoSpinner = {spnPressaoSistolica, spnPressaoDiastolica, spnAtividade, spnPeso};    
-        for (JSpinner spinner : grupoSpinner) {
-            spinner.setValue(null);
-        }
+        limparGruposDeBotoes();
+        limparComboBoxes();
     }//GEN-LAST:event_btLimparActionPerformed
 
     
-    private boolean verificarValoresNulos(ButtonGroup[] grpBotoes, JSpinner[] grupoSpinner, JTextField[] grupoValores) {
-        
-        for (ButtonGroup grupo : grpBotoes) {
-            if (grupo.getSelection() == null) {
-                return true; // Encontrou um botão não selecionado
-            }
-        }
-        for (JSpinner spinner : grupoSpinner) {
-            if (spinner.getValue() == null) {
-                return true; // Encontrou um spinner com valor nulo
-            }
-        }
-        
-        for (JTextField valor : grupoValores) {
-            if (valor.getText()== null || valor.getText().isEmpty()) {
-                return true; // Encontrou um campo de texto formatado com valor nulo ou vazio
-            }
-        }
-        
-        try {
-            Double.valueOf(txtAltura.getText());
-            Integer.valueOf(spnPeso.getValue().toString());
-            Integer.valueOf(spnPressaoSistolica.getValue().toString());
-            Integer.valueOf(spnPressaoDiastolica.getValue().toString());
-            Integer.valueOf(spnAtividade.getValue().toString());
-            ValidarQuest.calcularPontuacaoTotal(grpBotoes);
-            Double.valueOf(txtAvaliacaoMedica.getText());
-            
-            
-        } catch (NumberFormatException e) {
-            return true;
-        }
-        
-        return false; // Nenhum valor nulo encontrado
-    }
-    
-    
-      
-    
     private void btEnviarDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarDiagnosticoActionPerformed
-       ButtonGroup[] grpBotoes = {grpResposta1, grpResposta2, grpResposta3, grpResposta4, grpResposta5, grpResposta6};  
-       JSpinner[] grupoSpinner = {spnPressaoSistolica, spnPressaoDiastolica, spnAtividade, spnPeso};    
-       JTextField[] grupoValores = {txtAvaliacaoMedica,txtAltura};
-
-       
-        if(verificarValoresNulos(grpBotoes, grupoSpinner, grupoValores)){
-            txtDiagnostico.setText(" Preencha todos os campos!!!");
-        }else{
-            
-            double[] dados = {
-                Double.parseDouble(txtAltura.getText()),
-                Double.parseDouble(spnPeso.getValue().toString()),
-                Double.parseDouble(spnPressaoSistolica.getValue().toString()),
-                Double.parseDouble(spnPressaoDiastolica.getValue().toString()),
-                Double.parseDouble(spnAtividade.getValue().toString()),
-                ValidarQuest.calcularPontuacaoTotal(grpBotoes),
-                Double.parseDouble(txtAvaliacaoMedica.getText())
-            };
-
+        if (verificarCamposNulos()) {
+            txtDiagnostico.setText("Preencha todos os campos!!!");
+        } else {
+             double[] dados = obterDados();
             DadosInterface dadosInterface = new DadosInterface(
                 dados[0], dados[1], dados[2], dados[3], dados[4], dados[5], dados[6]
             );
@@ -488,12 +646,91 @@ public class AgenteUI extends javax.swing.JFrame {
             txtDiagnostico.setText(resposta);
         }
     }//GEN-LAST:event_btEnviarDiagnosticoActionPerformed
-    
+
+
+    private void limparGruposDeBotoes() {
+        ButtonGroup[] gruposDeBotoes = {grpResposta1, grpResposta2, grpResposta3, grpResposta4, grpResposta5, grpResposta6};
+        for (ButtonGroup grupo : gruposDeBotoes) {
+            grupo.clearSelection();
+        }
+    }
+
+
+    private void limparComboBoxes() {
+        JComboBox[] combos = {cmbAvaliacao, cmbAtividade};
+        for (JComboBox cmb : combos) {
+            cmb.setSelectedIndex(-1);
+        }
+    }
+
+    private boolean verificarCamposNulos() {
+        return algumBotaoNaoSelecionado() || algumSpinnerNulo() || algumComboBoxNulo() || camposInvalidos();
+    }
+
+    private boolean algumBotaoNaoSelecionado() {
+        ButtonGroup[] gruposDeBotoes = {grpResposta1, grpResposta2, grpResposta3, grpResposta4, grpResposta5, grpResposta6};
+        for (ButtonGroup grupo : gruposDeBotoes) {
+            if (grupo.getSelection() == null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean algumSpinnerNulo() {
+        JSpinner[] grupoSpinner = {spnPressaoSistolica, spnPressaoDiastolica};
+        for (JSpinner spinner : grupoSpinner) {
+            if (spinner.getValue() == null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean algumComboBoxNulo() {
+        JComboBox[] combos = {cmbAvaliacao, cmbAtividade};
+        for (JComboBox cmb : combos) {
+            if (cmb.getSelectedItem() == null || cmb.getSelectedItem().toString().isEmpty()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean camposInvalidos() {
+        try {
+            Double.valueOf(txtAltura.getText());
+            Double.valueOf(spnPeso.getValue().toString());
+            Double.valueOf(spnPressaoSistolica.getValue().toString());
+            Double.valueOf(spnPressaoDiastolica.getValue().toString());
+            Double.valueOf(cmbAtividade.getSelectedItem().toString());
+            ValidarQuest.calcularPontuacaoTotal(new ButtonGroup[]{grpResposta1, grpResposta2, grpResposta3, grpResposta4, grpResposta5, grpResposta6});
+            Double.valueOf(cmbAvaliacao.getSelectedItem().toString());
+        } catch (NumberFormatException e) {
+            return true;
+        }
+        return false;
+    }
+
+    private double[] obterDados() {
+        double altura = Double.parseDouble(txtAltura.getText());
+        double peso = Double.parseDouble(spnPeso.getValue().toString());
+        double pressaoSistolica = Double.parseDouble(spnPressaoSistolica.getValue().toString());
+        double pressaoDiastolica = Double.parseDouble(spnPressaoDiastolica.getValue().toString());
+        double atividade = Double.parseDouble(cmbAtividade.getSelectedItem().toString());
+        double pontuacaoTotal = ValidarQuest.calcularPontuacaoTotal(new ButtonGroup[]{grpResposta1, grpResposta2, grpResposta3, grpResposta4, grpResposta5, grpResposta6});
+        double avaliacao = Double.parseDouble(cmbAvaliacao.getSelectedItem().toString());
+
+        return new double[]{altura, peso, pressaoSistolica, pressaoDiastolica, atividade, pontuacaoTotal, avaliacao};
+    }
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnviarDiagnostico;
     private javax.swing.JButton btLimpar;
+    private javax.swing.JComboBox<String> cmbAtividade;
+    private javax.swing.JComboBox<String> cmbAvaliacao;
     private javax.swing.ButtonGroup grpResposta1;
     private javax.swing.ButtonGroup grpResposta2;
     private javax.swing.ButtonGroup grpResposta3;
@@ -502,15 +739,27 @@ public class AgenteUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup grpResposta6;
     private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton11;
     private javax.swing.JRadioButton jRadioButton12;
+    private javax.swing.JRadioButton jRadioButton13;
+    private javax.swing.JRadioButton jRadioButton14;
     private javax.swing.JRadioButton jRadioButton15;
     private javax.swing.JRadioButton jRadioButton16;
     private javax.swing.JRadioButton jRadioButton17;
@@ -518,35 +767,36 @@ public class AgenteUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton19;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton20;
+    private javax.swing.JRadioButton jRadioButton21;
+    private javax.swing.JRadioButton jRadioButton22;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JPanel painelManual;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel painelManual1;
-    private javax.swing.JSpinner spnAtividade;
     private javax.swing.JSpinner spnPeso;
     private javax.swing.JSpinner spnPressaoDiastolica;
     private javax.swing.JSpinner spnPressaoSistolica;
     private javax.swing.JTextField txtAltura;
-    private javax.swing.JTextField txtAvaliacaoMedica;
     private javax.swing.JTextArea txtDiagnostico;
-    private javax.swing.JLabel txtPeso;
     private javax.swing.JLabel txtPeso1;
-    private javax.swing.JLabel txtSintoma;
+    private javax.swing.JLabel txtPeso10;
+    private javax.swing.JLabel txtPeso2;
+    private javax.swing.JLabel txtPeso3;
+    private javax.swing.JLabel txtPeso4;
     private javax.swing.JLabel txtSintoma1;
+    private javax.swing.JLabel txtSintoma2;
     private javax.swing.JLabel txtTitulo13;
-    private javax.swing.JLabel txtTitulo2;
-    private javax.swing.JLabel txtTitulo3;
+    private javax.swing.JLabel txtTitulo4;
     private javax.swing.JLabel txtsintomas10;
-    private javax.swing.JLabel txtsintomas3;
-    private javax.swing.JLabel txtsintomas4;
+    private javax.swing.JLabel txtsintomas11;
     private javax.swing.JLabel txtsintomas5;
-    private javax.swing.JLabel txtsintomas6;
     private javax.swing.JLabel txtsintomas7;
     private javax.swing.JLabel txtsintomas8;
     private javax.swing.JLabel txtsintomas9;

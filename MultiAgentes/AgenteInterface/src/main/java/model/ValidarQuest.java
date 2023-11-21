@@ -26,6 +26,7 @@ public class ValidarQuest {
         mapaRespostas.put("De 11 a 20", 1);
         mapaRespostas.put("De 21 a 30", 2);
         mapaRespostas.put("Mais de 31", 3);
+        mapaRespostas.put("Não fumo", 0);
     }
 
     private static int calcularPontuacao(ButtonGroup grupo) {
