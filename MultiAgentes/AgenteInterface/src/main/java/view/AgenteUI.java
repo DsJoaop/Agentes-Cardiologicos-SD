@@ -1,7 +1,9 @@
 package view;
 
 import controller.ControllerUI;
+import javax.swing.BoundedRangeModel;
 import javax.swing.ButtonGroup;
+import javax.swing.JScrollBar;
 import javax.swing.JSpinner;
 import model.DadosInterface;
 import model.ValidarQuest;
@@ -31,7 +33,9 @@ public class AgenteUI extends javax.swing.JFrame {
         }
         
         initComponents();
+        jScrollPane2.getVerticalScrollBar().setUnitIncrement(12);
         this.controlador = controlador;
+    
     }
 
     /**
