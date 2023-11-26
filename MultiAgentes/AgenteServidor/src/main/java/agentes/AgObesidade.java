@@ -14,8 +14,8 @@ public class AgObesidade extends Agente {
 
     @Override
     public double avaliar() {
-        double peso = dados.getPeso(); // Supondo que o dado necessário seja obtido de DadosInterface
-        double altura = dados.getAltura(); // Supondo que o dado necessário seja obtido de DadosInterface
+        double peso = dados.getPeso();
+        double altura = dados.getAltura();
 
         double imc = calcularIMC(peso, altura);
         double pertinencia = 0.0;

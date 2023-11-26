@@ -10,7 +10,7 @@ public class AgPressaoDias extends Agente {
 
     @Override
     public double avaliar() {
-        double pressaoDiastolica = dados.getPressaoDiastolica(); // Supondo que o dado necessário seja obtido de DadosInterface
+        double pressaoDiastolica = dados.getPressaoDiastolica();
         double pertinencia;
 
         if (pressaoDiastolica >= 80 && pressaoDiastolica <= 90) {

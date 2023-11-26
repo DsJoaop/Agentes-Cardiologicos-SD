@@ -5,7 +5,8 @@ import agentes.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.AlgoritmoLPA2v;
+import model.AlgoritmoLPA2vEmUmSo;
+import model.AvaliadorRiscoCardiaco;
 
 public class ControllerServer{
     private final Servidor servidor;
@@ -37,7 +38,8 @@ public class ControllerServer{
 
     public String processarDados(DadosInterface dados) {
         List<Double> entradasLpa2v = processar(dados);
-        String mensagem = AlgoritmoLPA2v.iniciarAlgoritmo(entradasLpa2v);
+        //String mensagem = new AlgoritmoLPA2vEmUmSo().avaliarRiscoCardiaco(entradasLpa2v);
+        String mensagem = AvaliadorRiscoCardiaco.avaliarRiscoCardiaco(entradasLpa2v);
         System.out.println("\n\nResposta LPA2v: " + mensagem);
         if (mensagem == null) {
             return "Erro no algoritmo";

@@ -466,6 +466,7 @@ public class AgenteUI extends javax.swing.JFrame {
         jPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel.setLayout(new java.awt.BorderLayout());
 
+        txtDiagnostico.setEditable(false);
         txtDiagnostico.setColumns(20);
         txtDiagnostico.setRows(5);
         jScrollPane.setViewportView(txtDiagnostico);

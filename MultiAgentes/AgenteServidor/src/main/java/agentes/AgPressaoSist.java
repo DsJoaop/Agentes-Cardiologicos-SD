@@ -10,7 +10,7 @@ public class AgPressaoSist extends Agente {
 
     @Override
     public double avaliar() {
-        double pressao = dados.getPressaoSistolica(); // Supondo que o dado necessário seja obtido de DadosInterface
+        double pressao = dados.getPressaoSistolica();
         double pertinencia = 0.0;
 
         if (pressao >= 120 && pressao <= 140) {
@@ -24,5 +24,3 @@ public class AgPressaoSist extends Agente {
         return pertinencia;
     }
 }
-
-// Implementação semelhante para AgPressaoDias

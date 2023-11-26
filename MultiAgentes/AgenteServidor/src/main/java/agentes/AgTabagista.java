@@ -9,7 +9,7 @@ public class AgTabagista extends Agente {
 
     @Override
     public double avaliar() {
-        double questionario = dados.getPontuacaoTotal(); // Supondo que o dado necessário seja obtido de DadosInterface
+        double questionario = dados.getPontuacaoTotal();
         double pontos = questionario;
         double dependencia;
         if (pontos <= 2) {
