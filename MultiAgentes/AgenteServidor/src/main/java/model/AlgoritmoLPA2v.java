@@ -9,21 +9,29 @@ public class AlgoritmoLPA2v {
     private static final double LIMIAR_INCONSISTENTE = 0.7;
     private static final double LIMIAR_INDETERMINADO = -0.7;
 
-
+    // Método principal para avaliar o risco cardíaco com base nas entradas
     public static String avaliarRiscoCardiaco(List<Double> entradas) {
         while (entradas.size() > 2) {
+            // Cria uma lista de objetos 'P' com base nas entradas
             List<P> nodes = criarListaNodes(entradas);
+            
+            // Ajusta a lista de objetos 'P' se necessário, caso o numero de nodes seja impar
             nodes = ajustarListaNodes(nodes);
 
+            // Calcula dados a partir dos objetos 'P' na lista
             List<Double> dados = calcularDados(nodes);
+            
+            // Atualiza as entradas para os dados calculados
             entradas = dados;
         }
 
+        // Cria um objeto 'P' com os dois últimos valores e retorna o estado lógico resultante
         P p = criarP(entradas.get(0), entradas.get(1));
         return definirEstadoLogico(p);
     }
 
-     private static List<P> criarListaNodes(List<Double> entradas) {
+    // Cria uma lista de objetos 'P' a partir das entradas fornecidas
+    private static List<P> criarListaNodes(List<Double> entradas) {
         List<P> nodes = new ArrayList<>();
         for (int i = 0; i < entradas.size(); i += 2) {
             P p = new P(
@@ -34,16 +42,18 @@ public class AlgoritmoLPA2v {
         return nodes;
     }
 
-        private static List<P> ajustarListaNodes(List<P> nodes) {
-            if (nodes.size() % 2 == 1) {
-                P p = calcularMaximo(nodes.get(0), nodes.get(1));
-                nodes.remove(0);
-                nodes.remove(1);
-                nodes.add(p);
-            }
-            return nodes;
+    // Realiza ajustes na lista de objetos 'P' se o tamanho for ímpar
+    private static List<P> ajustarListaNodes(List<P> nodes) {
+        if (nodes.size() % 2 == 1) {
+            P p = calcularMaximo(nodes.get(0), nodes.get(1));
+            nodes.remove(0);
+            nodes.remove(1);
+            nodes.add(p);
         }
+        return nodes;
+    }
 
+    // Calcula dados lógicos a partir dos objetos 'P' na lista fornecida
     private static List<Double> calcularDados(List<P> nodes) {
         List<Double> dados = new ArrayList<>();
         nodes.forEach(no -> {
@@ -52,30 +62,33 @@ public class AlgoritmoLPA2v {
         return dados;
     }
 
+    // Calcula o máximo entre dois objetos 'P'
     private static P calcularMaximo(P p1, P p2) {
         double maiorMi = Math.max(p1.getMi(), p2.getMi());
         double menorLambda = Math.min(p1.getLambda(), p2.getLambda());
         return new P(maiorMi, menorLambda);
     }
 
+    // Cria um objeto 'P' com dois valores dados
     private static P criarP(double valor1, double valor2) {
         return new P(valor1, definirGrauEvidenciaDesfavoravel(valor2));
     }
 
-    
+    // Realiza uma série de cálculos lógicos com base no objeto 'P' fornecido
     private static double analiseDeNo(P p) {
+        // Inicializa variáveis
         double grauContradicao;
         double grauCerteza;
         double grauCertezaReal;
         double distancia;
 
-        //Cálculo do grau de certeza
+        // Cálculo do grau de certeza
         grauCerteza = definirGrauCerteza(p.getMi(), p.getLambda());
 
-        //Calculo do grau de contradição
+        // Cálculo do grau de contradição
         grauContradicao = definirGrauContradicao(p.getMi(), p.getLambda());
 
-        //Calculo da distância
+        // Cálculo da distância
         distancia = definirDistancia(grauCerteza, grauContradicao);
 
         // Determinação do grau de certeza real
@@ -85,7 +98,7 @@ public class AlgoritmoLPA2v {
             grauCertezaReal = distancia - 1;
         }
 
-        // Determinação do grau de evidência resultante;
+        // Determinação do grau de evidência resultante
         return definirGrauEvidenciaResultanteReal(grauCertezaReal);
     }
 
