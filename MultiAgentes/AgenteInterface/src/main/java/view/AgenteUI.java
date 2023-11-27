@@ -381,8 +381,10 @@ public class AgenteUI extends javax.swing.JFrame {
 
         jPanel14.setLayout(new java.awt.GridLayout(2, 1, 50, 10));
 
-        spnPeso.setModel(new javax.swing.SpinnerNumberModel(50, 20, 300, 1));
+        spnPeso.setModel(new javax.swing.SpinnerNumberModel(80, 20, 300, 1));
         jPanel14.add(spnPeso);
+
+        txtAltura.setText("1.70");
         jPanel14.add(txtAltura);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
