@@ -11,20 +11,19 @@ public class AlgoritmoLPA2v {
 
     // Método principal para avaliar o risco cardíaco com base nas entradas
     public static String avaliarRiscoCardiaco(List<Double> entradas) {
+        List<P> nodes = new ArrayList<>(); // Inicializa a lista nodes
+
         while (entradas.size() > 2) {
-            // Cria uma lista de objetos 'P' com base nas entradas
-            List<P> nodes = criarListaNodes(entradas);
-            
-            // Ajusta a lista de objetos 'P' se necessário, caso o numero de nodes seja impar
-            nodes = ajustarListaNodes(nodes);
-
-            // Calcula dados a partir dos objetos 'P' na lista
-            List<Double> dados = calcularDados(nodes);
-            
-            // Atualiza as entradas para os dados calculados
-            entradas = dados;
+            if (entradas.size() % 2 == 1) {
+                nodes = ajustarListaNodes(nodes, entradas);
+                List<Double> dados = calcularDados(nodes);
+                entradas = dados;
+            } else {
+                nodes = criarListaNodes(entradas);
+                List<Double> dados = calcularDados(nodes);
+                entradas = dados;
+            }
         }
-
         // Cria um objeto 'P' com os dois últimos valores e retorna o estado lógico resultante
         P p = criarP(entradas.get(0), entradas.get(1));
         return definirEstadoLogico(p);
@@ -33,7 +32,7 @@ public class AlgoritmoLPA2v {
     // Cria uma lista de objetos 'P' a partir das entradas fornecidas
     private static List<P> criarListaNodes(List<Double> entradas) {
         List<P> nodes = new ArrayList<>();
-        for (int i = 0; i < entradas.size(); i += 2) {
+            for (int i = 0; i < entradas.size(); i += 2) {
             P p = new P(
                     entradas.get(i),
                     definirGrauEvidenciaDesfavoravel(entradas.get(i + 1)));
@@ -43,13 +42,12 @@ public class AlgoritmoLPA2v {
     }
 
     // Realiza ajustes na lista de objetos 'P' se o tamanho for ímpar
-    private static List<P> ajustarListaNodes(List<P> nodes) {
-        if (nodes.size() % 2 == 1) {
-            P p = calcularMaximo(nodes.get(0), nodes.get(1));
-            nodes.remove(0);
-            nodes.remove(1);
-            nodes.add(p);
-        }
+    private static List<P> ajustarListaNodes(List<P> nodes, List<Double> entradas) {
+        P p = calcularMaximo(nodes.get(0), nodes.get(1));
+        nodes.remove(0);
+        nodes.remove(1);
+        nodes.add(p);
+
         return nodes;
     }
 
@@ -68,6 +66,8 @@ public class AlgoritmoLPA2v {
         double menorLambda = Math.min(p1.getLambda(), p2.getLambda());
         return new P(maiorMi, menorLambda);
     }
+    
+    
 
     // Cria um objeto 'P' com dois valores dados
     private static P criarP(double valor1, double valor2) {
