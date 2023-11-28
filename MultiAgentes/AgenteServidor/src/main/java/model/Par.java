@@ -1,11 +1,11 @@
 package model;
 
-public class P {
+public class Par {
 
     private double mi;
     private double lambda;
 
-    public P(double mi, double lambda) {
+    public Par(double mi, double lambda) {
         this.mi = mi;
         this.lambda = lambda;
     }

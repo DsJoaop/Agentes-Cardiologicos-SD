@@ -384,6 +384,7 @@ public class AgenteUI extends javax.swing.JFrame {
         spnPeso.setModel(new javax.swing.SpinnerNumberModel(80, 20, 300, 1));
         jPanel14.add(spnPeso);
 
+        txtAltura.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtAltura.setText("1.70");
         jPanel14.add(txtAltura);
 

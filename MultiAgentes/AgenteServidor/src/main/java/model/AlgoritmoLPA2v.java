@@ -11,71 +11,71 @@ public class AlgoritmoLPA2v {
 
     // Método principal para avaliar o risco cardíaco com base nas entradas
     public static String avaliarRiscoCardiaco(List<Double> entradas) {
-        List<P> nodes = new ArrayList<>(); // Inicializa a lista nodes
+        List<Par> listPares = new ArrayList<>(); // Inicializa a lista
 
         while (entradas.size() > 2) {
             if (entradas.size() % 2 == 1) {
-                nodes = ajustarListaNodes(nodes, entradas);
-                List<Double> dados = calcularDados(nodes);
+                listPares = ajustarListaPares(listPares);
+                List<Double> dados = calcularDados(listPares);
                 entradas = dados;
             } else {
-                nodes = criarListaNodes(entradas);
-                List<Double> dados = calcularDados(nodes);
+                listPares = criarListaPares(entradas);
+                List<Double> dados = calcularDados(listPares);
                 entradas = dados;
             }
         }
-        // Cria um objeto 'P' com os dois últimos valores e retorna o estado lógico resultante
-        P p = criarP(entradas.get(0), entradas.get(1));
+        // Cria um objeto 'Par' com os dois últimos valores e retorna o estado lógico resultante
+        Par p = criarP(entradas.get(0), entradas.get(1));
         return definirEstadoLogico(p);
     }
 
     // Cria uma lista de objetos 'P' a partir das entradas fornecidas
-    private static List<P> criarListaNodes(List<Double> entradas) {
-        List<P> nodes = new ArrayList<>();
+    private static List<Par> criarListaPares(List<Double> entradas) {
+        List<Par> listaPares = new ArrayList<>();
             for (int i = 0; i < entradas.size(); i += 2) {
-            P p = new P(
+            Par p = new Par(
                     entradas.get(i),
                     definirGrauEvidenciaDesfavoravel(entradas.get(i + 1)));
-            nodes.add(p);
+            listaPares.add(p);
         }
-        return nodes;
+        return listaPares;
     }
 
     // Realiza ajustes na lista de objetos 'P' se o tamanho for ímpar
-    private static List<P> ajustarListaNodes(List<P> nodes, List<Double> entradas) {
-        P p = calcularMaximo(nodes.get(0), nodes.get(1));
-        nodes.remove(0);
-        nodes.remove(1);
-        nodes.add(p);
+    private static List<Par> ajustarListaPares(List<Par> listaPares) {
+        Par p = calcularMaximo(listaPares.get(0), listaPares.get(1));
+        listaPares.remove(0);
+        listaPares.remove(1);
+        listaPares.add(p);
 
-        return nodes;
+        return listaPares;
     }
 
     // Calcula dados lógicos a partir dos objetos 'P' na lista fornecida
-    private static List<Double> calcularDados(List<P> nodes) {
+    private static List<Double> calcularDados(List<Par> listaPares) {
         List<Double> dados = new ArrayList<>();
-        nodes.forEach(no -> {
-            dados.add(analiseDeNo(no));
+        listaPares.forEach(par -> {
+            dados.add(analiseDeNo(par));
         });
         return dados;
     }
 
     // Calcula o máximo entre dois objetos 'P'
-    private static P calcularMaximo(P p1, P p2) {
+    private static Par calcularMaximo(Par p1, Par p2) {
         double maiorMi = Math.max(p1.getMi(), p2.getMi());
         double menorLambda = Math.min(p1.getLambda(), p2.getLambda());
-        return new P(maiorMi, menorLambda);
+        return new Par(maiorMi, menorLambda);
     }
     
     
 
     // Cria um objeto 'P' com dois valores dados
-    private static P criarP(double valor1, double valor2) {
-        return new P(valor1, definirGrauEvidenciaDesfavoravel(valor2));
+    private static Par criarP(double valor1, double valor2) {
+        return new Par(valor1, definirGrauEvidenciaDesfavoravel(valor2));
     }
 
     // Realiza uma série de cálculos lógicos com base no objeto 'P' fornecido
-    private static double analiseDeNo(P p) {
+    private static double analiseDeNo(Par p) {
         // Inicializa variáveis
         double grauContradicao;
         double grauCerteza;
@@ -135,7 +135,7 @@ public class AlgoritmoLPA2v {
     }
     
     
-    private static String definirEstadoLogico(P p) {
+    private static String definirEstadoLogico(Par p) {
         double Gc = definirGrauCerteza(p.getMi(), p.getLambda());
         double Gct = definirGrauContradicao(p.getMi(), p.getLambda());
 
