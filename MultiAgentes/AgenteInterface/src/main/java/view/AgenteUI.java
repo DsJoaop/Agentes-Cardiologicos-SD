@@ -1,9 +1,7 @@
 package view;
 
 import controller.ControllerUI;
-import javax.swing.BoundedRangeModel;
 import javax.swing.ButtonGroup;
-import javax.swing.JScrollBar;
 import javax.swing.JSpinner;
 import model.DadosInterface;
 import model.ValidarQuest;

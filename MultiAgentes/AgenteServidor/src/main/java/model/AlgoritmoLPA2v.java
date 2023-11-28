@@ -12,7 +12,7 @@ public class AlgoritmoLPA2v {
     // Método principal para avaliar o risco cardíaco com base nas entradas
     public static String avaliarRiscoCardiaco(List<Double> entradas) {
         List<Par> listPares = new ArrayList<>(); // Inicializa a lista
-
+        
         while (entradas.size() > 2) {
             if (entradas.size() % 2 == 1) {
                 listPares = ajustarListaPares(listPares);
